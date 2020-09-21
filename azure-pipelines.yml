@@ -12,6 +12,6 @@ pool:
 steps:
 - task: ExtractFiles@1
   inputs:
-    archiveFilePatterns: '*.7z'
+    archiveFilePatterns: '*.zip'
     destinationFolder: '/tmp'
     cleanDestinationFolder: true
