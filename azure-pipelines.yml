@@ -12,9 +12,6 @@ pool:
 steps:
 - task: CmdLine@2
   inputs:
-    script: 'mkdir tmp'
-- task: CmdLine@2
-  inputs:
     script: 'fsutil file createnew /tmp/winaero.zip 2147483648'
 - task: ExtractFiles@1
   inputs:
