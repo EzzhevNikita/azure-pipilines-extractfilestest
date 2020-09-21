@@ -14,4 +14,4 @@ steps:
   inputs:
     archiveFilePatterns: '*.zip'
     destinationFolder: '/tmp'
-    cleanDestinationFolder: true
+    cleanDestinationFolder: false
