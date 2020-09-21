@@ -10,11 +10,8 @@ pool:
   vmImage: 'windows-latest'
 
 steps:
-- task: CmdLine@2
-  inputs:
-    script: 'fsutil file createnew winaero.zip 2147483648'
 - task: ExtractFiles@1
   inputs:
     archiveFilePatterns: '*.zip'
-    destinationFolder: '/tmp'
+    destinationFolder: '/'
     cleanDestinationFolder: false
