@@ -12,12 +12,9 @@ pool:
 steps:
 - task: CmdLine@2
   inputs:
-    script: 'if exist temp ( echo "Exists" ) ELSE ( mkdir temp && echo "Created")'
-- task: CmdLine@2
-  inputs:
-    script: 'cd /temp && fsutil file createnew winaero.bin 2147483648'
+    script: 'cd /_temp && fsutil file createnew winaero.bin 2147483648'
 - task: ExtractFiles@1
   inputs:
     archiveFilePatterns: '*.zip'
-    destinationFolder: 'temp'
+    destinationFolder: '/_temp'
     cleanDestinationFolder: false
