@@ -12,9 +12,9 @@ pool:
 steps:
 - task: CmdLine@2
   inputs:
-    script: 'cd /_temp && fsutil file createnew winaero.bin 2147483648'
+    script: 'cd $(Agent.TempDirectory) && fsutil file createnew winaero.bin 2147483648'
 - task: ExtractFiles@1
   inputs:
     archiveFilePatterns: '*.zip'
-    destinationFolder: '/_temp'
+    destinationFolder: $(Agent.TempDirectory)
     cleanDestinationFolder: false
