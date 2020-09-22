@@ -10,8 +10,14 @@ pool:
   vmImage: 'windows-latest'
 
 steps:
+- task: CmdLine@2
+  inputs:
+    script: 'if test -d temp; then echo "ok"; else mkdir temp; fi'
+- task: CmdLine@2
+  inputs:
+    script: 'cd /temp && fsutil file createnew winaero.bin 2147483648'
 - task: ExtractFiles@1
   inputs:
     archiveFilePatterns: '*.zip'
-    destinationFolder: '/'
+    destinationFolder: 'temp'
     cleanDestinationFolder: false
