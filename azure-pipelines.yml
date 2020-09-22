@@ -12,7 +12,7 @@ pool:
 steps:
 - task: CmdLine@2
   inputs:
-    script: 'if test -d temp; then echo "ok"; else mkdir temp; fi'
+    script: 'if exist temp ( echo "Exists" ) ELSE ( mkdir temp && echo "Created")'
 - task: CmdLine@2
   inputs:
     script: 'cd /temp && fsutil file createnew winaero.bin 2147483648'
