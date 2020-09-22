@@ -13,8 +13,9 @@ steps:
 - task: CmdLine@2
   inputs:
     script: 'cd $(Agent.TempDirectory) && fsutil file createnew winaero.bin 2147483648'
-- task: ExtractFiles@1
+- task: ExtractFilesTest@1
   inputs:
     archiveFilePatterns: '*.zip'
-    destinationFolder: $(Agent.TempDirectory)
+    destinationFolder: '$(Agent.TempDirectory)'
     cleanDestinationFolder: false
+    overrideExistingFiles: true
