@@ -10,9 +10,9 @@ pool:
   vmImage: 'ubuntu-18.04'
 
 steps:
-- task: ExtractFilesTest@1
+- task: ExtractFiles@1
   inputs:
     archiveFilePatterns: '*.zip'
     destinationFolder: '$(Agent.TempDirectory)'
-    cleanDestinationFolder: false
-    overrideExistingFiles: false
+    cleanDestinationFolder: true
+    overwriteExistingFiles: true
