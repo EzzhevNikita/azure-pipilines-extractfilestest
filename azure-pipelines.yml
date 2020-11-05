@@ -14,6 +14,35 @@ steps:
   inputs:
     archiveFilePatterns: '*.zip'
     destinationFolder: '$(Agent.TempDirectory)'
-    cleanDestinationFolder: true
+    cleanDestinationFolder: false
     overwriteExistingFiles: true
-
+- task: ExtractFiles@1
+  inputs:
+    archiveFilePatterns: '*.7z'
+    destinationFolder: '$(Agent.TempDirectory)'
+    cleanDestinationFolder: false
+    overwriteExistingFiles: true
+- task: ExtractFiles@1
+  inputs:
+    archiveFilePatterns: '*.tar'
+    destinationFolder: '$(Agent.TempDirectory)'
+    cleanDestinationFolder: false
+    overwriteExistingFiles: true
+- task: ExtractFiles@1
+  inputs:
+    archiveFilePatterns: '*.zip'
+    destinationFolder: '$(Agent.TempDirectory)'
+    cleanDestinationFolder: false
+    overwriteExistingFiles: false
+- task: ExtractFiles@1
+  inputs:
+    archiveFilePatterns: '*.7z'
+    destinationFolder: '$(Agent.TempDirectory)'
+    cleanDestinationFolder: false
+    overwriteExistingFiles: false
+- task: ExtractFiles@1
+  inputs:
+    archiveFilePatterns: '*.tar'
+    destinationFolder: '$(Agent.TempDirectory)'
+    cleanDestinationFolder: false
+    overwriteExistingFiles: false
