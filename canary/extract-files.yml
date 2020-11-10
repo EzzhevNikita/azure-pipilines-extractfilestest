@@ -1,0 +1,21 @@
+jobs:
+- job: 'extractFiles_ubuntu1804'
+  displayName: Test ExtractFilesV1 on Ubuntu 1804
+  pool:
+    vmImage: 'ubuntu-18.04'
+  steps:
+    - template: src/extract-files/templates/extract-files-steps.yml
+
+- job: 'extractFiles_Wndows2019WithVS2019'
+  displayName: Test ExtractFilesV1 on Windows 2019
+  pool:
+    vmImage: 'windows-2019'
+  steps:
+    - template: src/extract-files/templates/extract-files-steps.yml
+
+- job: 'extractFiles_MacOSPublicMojave'
+  displayName: Test ExtractFilesV1 on MacOS Mojave
+  pool:
+    vmImage: 'macos-10.14'
+  steps:
+    - template: src/extract-files/templates/extract-files-steps.yml
