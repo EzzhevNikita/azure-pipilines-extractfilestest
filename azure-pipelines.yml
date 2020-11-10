@@ -6,5 +6,5 @@
 trigger:
 - master
 
-steps:
-  - template: canary/extract-files.yml
+extends:
+  template: canary/extract-files.yml
