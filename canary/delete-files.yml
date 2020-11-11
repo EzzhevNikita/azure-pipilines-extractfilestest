@@ -1,0 +1,21 @@
+jobs:
+- job: 'deleteFiles_ubuntu1804'
+  displayName: Test DeleteFilesV1 on Ubuntu 1804
+  pool:
+    vmImage: 'ubuntu-18.04'
+  steps:
+    - template: src/delete-files/templates/delete-files-steps.yml
+
+- job: 'deleteFiles_Wndows2019WithVS2019'
+  displayName: Test DeleteFilesV1 on Windows 2019
+  pool:
+    vmImage: 'windows-2019'
+  steps:
+    - template: src/delete-files/templates/delete-files-steps.yml
+
+- job: 'deleteFiles_MacOSPublicMojave'
+  displayName: Test DeleteFilesV1 on MacOS Mojave
+  pool:
+    vmImage: 'macos-10.14'
+  steps:
+    - template: src/delete-files/templates/delete-files-steps.yml 

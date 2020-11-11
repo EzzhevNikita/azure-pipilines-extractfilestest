@@ -1,0 +1,40 @@
+parameters:
+- name: 'pattern'
+  type: string
+- name: 'files'
+  type: string
+- name: 'displayName'
+  type: string
+
+steps:
+- task: Bash@3
+  displayName: 'Create temp directory'
+  inputs:
+    targetType: 'inline'
+    script: |
+      cd canary/src/delete-files
+      rm -rf temp
+      mkdir temp && cd temp
+      touch file1.js
+      touch file2.css
+      mkdir subfolder1 && cd subfolder1
+      touch file3.js
+      touch file4.css
+      mkdir subfolder2 && cd subfolder2
+      touch file5.js
+      touch file6.css
+- task: DeleteFiles@1
+  displayName: ${{ parameters.displayName }}
+  inputs:
+    SourceFolder: $(Build.SourcesDirectory)/canary/src/delete-files/temp
+    Contents: ${{ parameters.pattern }}
+- task: Bash@3
+  displayName: 'Check deleted files'
+  inputs:
+    targetType: 'inline'
+    script: |
+      cd canary/src/delete-files
+      existing=$( /usr/bin/find temp -type f | /usr/bin/sort | xargs )
+      if [ "$existing" != "${{ parameters.files }}" ]; then
+        echo "Existing files: $existing, expected: ${{ parameters.files }}"; exit 1;
+      fi

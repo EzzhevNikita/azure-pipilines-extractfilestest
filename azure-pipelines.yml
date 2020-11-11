@@ -7,4 +7,4 @@ trigger:
 - master
 
 extends:
-  template: canary/extract-files.yml
+  template: canary/delete-files.yml
