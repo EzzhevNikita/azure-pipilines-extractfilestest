@@ -84,3 +84,21 @@ steps:
       cleanTargetFolder: true
       overWrite: false
       flattenFolders: true
+  
+  - task: CopyFiles@2
+    displayName: ${{ parameters.displayName }}
+    inputs:
+      SourceFolder: 'canary/src/copy-files/source'
+      Contents: |
+        root-file1.js
+      TargetFolder: 'canary/src/copy-files/target'
+      CleanTargetFolder: true
+      OverWrite: false
+      flattenFolders: true
+      preserveTimestamp: true
+    
+  - task: Bash@3
+    displayName: 'Check if files was copyed with preserved timestamp'
+    inputs:
+      filePath: 'canary/src/copy-files/scripts/testTimeStampPreserved.sh'
+      arguments: 'root-file1.js'
