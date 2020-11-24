@@ -1,0 +1,30 @@
+parameters:
+  - name: 'pattern'
+    type: string
+  - name: 'displayName'
+    type: string
+  - name: 'cleanTargetFolder'
+    type: boolean
+  - name: 'overWrite'
+    type: boolean
+  - name: 'flattenFolders'
+    type: boolean
+  - name: 'expectedFiles'
+    type: string
+
+steps:
+  - task: CopyFiles@2
+    displayName: ${{ parameters.displayName }}
+    inputs:
+      SourceFolder: 'canary/src/copy-files/source'
+      Contents: |
+        ${{ parameters.pattern }}
+      TargetFolder: 'canary/src/copy-files/target'
+      CleanTargetFolder: ${{ parameters.cleanTargetFolder }}
+      OverWrite: ${{ parameters.overWrite }}
+      flattenFolders: ${{ parameters.flattenFolders }}
+  - task: Bash@3
+    displayName: 'Check if target folder contains correct files'
+    inputs:
+      filePath: 'canary/src/copy-files/scripts/checkNumberOfFilesInTarget.sh'
+      arguments: ${{ parameters.expectedFiles }}

@@ -1,0 +1,22 @@
+jobs:
+  - job: 'copyFiles_ubuntu1804'
+    displayName: Test CopyFilesV2 on Ubuntu 1804
+    pool:
+      vmImage: 'ubuntu-18.04'
+    steps:
+      - template: src/copy-files/templates/copy-files-steps.yml
+  
+  - job: 'copyFiles_Wndows2019WithVS2019'
+    displayName: Test CopyFilesV2 on Windows 2019
+    pool:
+      vmImage: 'windows-2019'
+    steps:
+      - template: src/copy-files/templates/copy-files-steps.yml
+  
+  - job: 'copyFiles_MacOSPublicCatalina'
+    displayName: Test CopyFilesV2 on MacOS Catalina
+    pool:
+      vmImage: 'macos-10.15'
+    condition: and(succeeded(),  contains(variables.targetPools, 'Hosted macOS Catalina'))
+    steps:
+      - template: src/copy-files/templates/copy-files-steps.yml

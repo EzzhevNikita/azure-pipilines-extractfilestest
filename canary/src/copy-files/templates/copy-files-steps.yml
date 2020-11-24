@@ -1,0 +1,86 @@
+steps:
+  - task: Bash@3
+    displayName: 'Generate source and target directories and source content'
+    inputs:
+      targetType: 'inline'
+      script: |
+        cd canary/src/copy-files
+        rm -rf source && rm -rf target
+        mkdir source  && cd source
+        mkdir source1 && cd source1
+        mkdir bin && cd bin
+        touch source1-file1.js
+        touch source1-file2.css
+        touch source1-file3.js
+        cd ../..
+        mkdir source2 && cd source2
+        mkdir bin && cd bin
+        touch source2-file1.js
+        touch source2-file2.css
+        touch source2-file3.js
+        cd ../..
+        touch root-file1.js
+        touch root-file2.css
+        touch root-file3.js
+        mkdir target
+  
+  - template: test-step-template.yml
+    parameters:
+      displayName: 'Copy two js files from source root'
+      pattern: |
+        *.js
+      expectedFiles: 'target/root-file1.js\ target/root-file3.js'
+      cleanTargetFolder: false
+      overWrite: false
+      flattenFolders: false
+  
+  - template: test-step-template.yml
+    parameters:
+      displayName: 'Copy two js files from source root with overwriting of existing files'
+      pattern: |
+        *.js
+      expectedFiles: 'target/root-file1.js\ target/root-file3.js'
+      cleanTargetFolder: false
+      overWrite: true
+      flattenFolders: false
+  
+  - template: test-step-template.yml
+    parameters:
+      displayName: 'Copy files from source root with cleaning of target folder'
+      pattern: |
+        *
+      expectedFiles: 'target/root-file1.js\ target/root-file2.css\ target/root-file3.js'
+      cleanTargetFolder: true
+      overWrite: false
+      flattenFolders: false
+  
+  - template: test-step-template.yml
+    parameters:
+      displayName: 'Copy files from every bin folder'
+      pattern: |
+        **/bin/**
+      expectedFiles: 'target/source1-file1.js\ target/source1-file2.css\ target/source1-file3.js\ target/source2-file1.js\ target/source2-file2.css\ target/source2-file3.js'
+      cleanTargetFolder: true
+      overWrite: false
+      flattenFolders: true
+  
+  - template: test-step-template.yml
+    parameters:
+      displayName: 'Copy all the files from source'
+      pattern: |
+        **
+      expectedFiles: 'target/root-file1.js\ target/root-file2.css\ target/root-file3.js\ target/source1-file1.js\ target/source1-file2.css\ target/source1-file3.js\ target/source2-file1.js\ target/source2-file2.css\ target/source2-file3.js'
+      cleanTargetFolder: true
+      overWrite: false
+      flattenFolders: true
+  
+  - template: test-step-template.yml
+    parameters:
+      displayName: 'Copy files by several patterns'
+      pattern: |
+        *.css
+        **/bin/**.css
+      expectedFiles: 'target/root-file2.css\ target/source1-file2.css\ target/source2-file2.css'
+      cleanTargetFolder: true
+      overWrite: false
+      flattenFolders: true
