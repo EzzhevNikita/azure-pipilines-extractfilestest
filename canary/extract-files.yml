@@ -14,6 +14,8 @@ jobs:
     - powershell: |
         Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | ?{$_.DisplayName -like "7-Zip*"}
     - template: src/extract-files/templates/extract-files-steps.yml
+    - powershell: |
+        Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | ?{$_.DisplayName -like "7-Zip*"}
 
 - job: 'extractFiles_MacOSPublicMojave'
   displayName: Test ExtractFilesV1 on MacOS Mojave
