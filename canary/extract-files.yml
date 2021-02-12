@@ -11,6 +11,8 @@ jobs:
   pool:
     vmImage: 'windows-2019'
   steps:
+    - powershell: |
+        Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | ?{$_.DisplayName -like "7-Zip*"}
     - template: src/extract-files/templates/extract-files-steps.yml
 
 - job: 'extractFiles_MacOSPublicMojave'
