@@ -27,6 +27,6 @@ jobs:
 - job: 'extractFiles_selfHostedWindows'
   displayName: Test ExtractFilesV1 on MacOS Mojave
   pool:
-    vmImage: 'Default'
+    name: 'Default'
   steps:
     - template: src/extract-files/templates/extract-files-steps.yml
