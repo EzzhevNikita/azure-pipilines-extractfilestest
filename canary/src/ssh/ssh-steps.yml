@@ -1,0 +1,23 @@
+steps:
+  - task: SSH@0
+    displayName: 'Run shell commands on remote machine'
+    inputs:
+      sshEndpoint: ${{ parameters.sshEndpoint }}
+      commands: pwd
+
+  - task: SSH@0
+    displayName: 'Run shell script on remote machine'
+    inputs:
+      sshEndpoint: ${{ parameters.sshEndpoint }}
+      runOptions: script
+      scriptPath: src/ssh/LinuxScriptFile.sh
+
+  - task: SSH@0
+    displayName: 'Run shell inline on remote machine'
+    inputs:
+      sshEndpoint: ${{ parameters.sshEndpoint }}
+      runOptions: inline
+      inline: |
+        #!/bin/bash
+        echo "Current working directory"
+        pwd
