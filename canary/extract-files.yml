@@ -25,8 +25,15 @@ jobs:
     - template: src/extract-files/templates/extract-files-steps.yml
 
 - job: 'extractFiles_selfHostedWindows'
-  displayName: Test ExtractFilesV1 on MacOS Mojave
+  displayName: Windows self hosted without preinstalled 7z
   pool:
     name: 'Default'
   steps:
     - template: src/extract-files/templates/extract-files-steps.yml
+
+- job: 'extractFiles_selfHostedWindowsCustomPath'
+  displayName: Windows self hosted custom path
+  pool:
+    name: 'Default'
+  steps:
+    - template: src/extract-files/templates/extract-files-steps-custom.yml
