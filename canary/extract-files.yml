@@ -23,3 +23,12 @@ jobs:
     vmImage: 'macos-10.14'
   steps:
     - template: src/extract-files/templates/extract-files-steps.yml
+
+- job: 'extractFiles_selfHostedWindows'
+  displayName: Test ExtractFilesV1 on MacOS Mojave
+  pool:
+    vmImage: 'Default'
+    demands:
+    - agent.os -equals Windows_NT
+  steps:
+    - template: src/extract-files/templates/extract-files-steps.yml
