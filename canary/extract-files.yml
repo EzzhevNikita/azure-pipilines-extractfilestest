@@ -1,8 +1,22 @@
 jobs:
+- job: 'extractFiles_ubuntu1604'
+  displayName: Test ExtractFilesV1 on Ubuntu 1604
+  pool:
+    vmImage: 'ubuntu-16.04'
+  steps:
+    - template: src/extract-files/templates/extract-files-steps.yml
+
 - job: 'extractFiles_ubuntu1804'
   displayName: Test ExtractFilesV1 on Ubuntu 1804
   pool:
     vmImage: 'ubuntu-18.04'
+  steps:
+    - template: src/extract-files/templates/extract-files-steps.yml
+
+- job: 'extractFiles_ubuntu2004'
+  displayName: Test ExtractFilesV1 on Ubuntu 2004
+  pool:
+    vmImage: 'ubuntu-20.04'
   steps:
     - template: src/extract-files/templates/extract-files-steps.yml
 
@@ -17,6 +31,17 @@ jobs:
     - powershell: |
         Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | ?{$_.DisplayName -like "7-Zip*"}
 
+- job: 'extractFiles_Wndows2016WithVS2016'
+  displayName: Test ExtractFilesV1 on Windows 2016
+  pool:
+    vmImage: 'vs2017-win2016'
+  steps:
+    - powershell: |
+        Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | ?{$_.DisplayName -like "7-Zip*"}
+    - template: src/extract-files/templates/extract-files-steps.yml
+    - powershell: |
+        Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | ?{$_.DisplayName -like "7-Zip*"}
+
 - job: 'extractFiles_MacOSPublicMojave'
   displayName: Test ExtractFilesV1 on MacOS Mojave
   pool:
@@ -24,11 +49,18 @@ jobs:
   steps:
     - template: src/extract-files/templates/extract-files-steps.yml
 
+- job: 'extractFiles_MacOSPublicCatalina'
+  displayName: Test ExtractFilesV1 on MacOS Catalina
+  pool:
+    vmImage: 'macos-10.15'
+  steps:
+    - template: src/extract-files/templates/extract-files-steps.yml
+
 - job: 'extractFiles_selfHostedWindows'
   displayName: Windows self hosted without preinstalled 7z
   pool:
     name: 'Default'
-    demand:
+    demands:
     - agent.os -equals Windows_NT
   steps:
     - template: src/extract-files/templates/extract-files-steps.yml
@@ -37,7 +69,7 @@ jobs:
   displayName: Windows self hosted custom path
   pool:
     name: 'Default'
-    demand:
+    demands:
     - agent.os -equals Windows_NT
   steps:
     - template: src/extract-files/templates/extract-files-steps-custom.yml
@@ -46,7 +78,7 @@ jobs:
   displayName: Mac self hosted without preinstalled 7z
   pool:
     name: 'Default'
-    demand:
+    demands:
     - agent.os -equals Darwin
   steps:
     - template: src/extract-files/templates/extract-files-steps.yml
@@ -55,16 +87,16 @@ jobs:
   displayName: Mac self hosted custom path
   pool:
     name: 'Default'
-    demand:
+    demands:
     - agent.os -equals Darwin
   steps:
-    - template: src/extract-files/templates/extract-files-steps-custom-2.yml
+    - template: src/extract-files/templates/extract-files-steps-custom-3.yml
 
 - job: 'extractFiles_selfHostedUbuntu'
   displayName: Ubuntu self hosted without preinstalled 7z
   pool:
     name: 'Default'
-    demand:
+    demands:
     - agent.os -equals Linux
   steps:
     - template: src/extract-files/templates/extract-files-steps.yml
@@ -73,7 +105,7 @@ jobs:
   displayName: Ubuntu self hosted custom path
   pool:
     name: 'Default'
-    demand:
+    demands:
     - agent.os -equals Linux
   steps:
     - template: src/extract-files/templates/extract-files-steps-custom-2.yml

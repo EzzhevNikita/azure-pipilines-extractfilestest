@@ -10,7 +10,7 @@ steps:
     archiveFilePatterns: ${{ parameters.pattern }}
     destinationFolder: 'files/'
     cleanDestinationFolder: true
-    pathToSevenZipTool: '/usr/local/bin/7za'
+    pathToSevenZipTool: '/usr/bin/7za'
 - task: Bash@3
   inputs:
     targetType: 'inline'
