@@ -66,7 +66,7 @@ jobs:
     - template: src/extract-files/templates/extract-files-steps.yml
 
 - job: 'extractFiles_selfHostedWindowsCustomPath'
-  displayName: Windows self hosted custom path
+  displayName: Windows self hosted use 7z by custom path
   pool:
     name: 'Default'
     demands:
@@ -75,7 +75,7 @@ jobs:
     - template: src/extract-files/templates/extract-files-steps-custom.yml
 
 - job: 'extractFiles_selfHostedMac'
-  displayName: Mac self hosted without preinstalled 7z
+  displayName: Mac self hosted use preinstalled 7z
   pool:
     name: 'Default'
     demands:
@@ -84,7 +84,7 @@ jobs:
     - template: src/extract-files/templates/extract-files-steps.yml
 
 - job: 'extractFiles_selfHostedMacCustomPath'
-  displayName: Mac self hosted custom path
+  displayName: Mac self hosted use 7z by custom path
   pool:
     name: 'Default'
     demands:
@@ -93,7 +93,7 @@ jobs:
     - template: src/extract-files/templates/extract-files-steps-custom-3.yml
 
 - job: 'extractFiles_selfHostedUbuntu'
-  displayName: Ubuntu self hosted without preinstalled 7z
+  displayName: Ubuntu self hosted use preinstalled 7z
   pool:
     name: 'Default'
     demands:
@@ -102,7 +102,7 @@ jobs:
     - template: src/extract-files/templates/extract-files-steps.yml
 
 - job: 'extractFiles_selfHostedUbuntuCustomPath'
-  displayName: Ubuntu self hosted custom path
+  displayName: Ubuntu self hosted use 7z by custom path
   pool:
     name: 'Default'
     demands:
