@@ -1,0 +1,38 @@
+steps:
+- template: test-pattern-step-custom-2.yml
+  parameters:
+    pattern: 'canary/src/extract-files/archives/subfolder1/archive2.zip'
+    files: 'archive2.txt'
+  
+- template: test-pattern-step-custom-2.yml
+  parameters:
+    pattern: 'canary/src/extract-files/archives/*.zip'
+    files: 'archive1.txt'
+  
+- template: test-pattern-step-custom-2.yml
+  parameters:
+    pattern: 'canary/src/extract-files/archives/*/*.zip'
+    files: 'archive2.txt'
+
+- template: test-pattern-step-custom-2.yml
+  parameters:
+    pattern: 'canary/src/extract-files/archives/**/*.zip'
+    files: 'archive1.txt archive2.txt archive3.txt'
+
+- template: test-overwriting-step-custom-2.yml
+  parameters:
+    displayName: 'Extract .zip archive with overwriting of existed files'
+    pattern: 'canary/src/extract-files/archives/*.zip'
+    files: 'archive1.txt'
+
+- template: test-overwriting-step-custom-2.yml
+  parameters:
+    displayName: 'Extract .tar archive with overwriting of existed files'
+    pattern: 'canary/src/extract-files/archives/*.tar'
+    files: 'tarArchive.txt'
+
+- template: test-overwriting-step-custom-2.yml
+  parameters:
+    displayName: 'Extract .7z archive with overwriting of existed files'
+    pattern: 'canary/src/extract-files/archives/*.7z'
+    files: '7ziparchive.txt'
