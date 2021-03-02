@@ -1,0 +1,22 @@
+steps:
+- task: JenkinsQueueJob@2
+  displayName: 'Queue Jenkins Job: NotParameterized'
+  inputs:
+    serverEndpoint: 'jenkins-connection'
+    jobName: 'BuildCanary_NotParameterized'
+
+- task: JenkinsQueueJob@2
+  displayName: 'Queue Jenkins Job: Parameterized'
+  inputs:
+    serverEndpoint: 'jenkins-connection'
+    jobName: 'BuildCanary_Parameterized'
+    isParameterizedJob: true
+    jobParameters: |
+      MyBoolean=True
+      MyString=TestString123
+
+- task: JenkinsQueueJob@2
+  displayName: 'Queue Jenkins Job: Pipeline'
+  inputs:
+    serverEndpoint: 'jenkins-connection'
+    jobName: 'BuildCanary_Pipeline_Root'

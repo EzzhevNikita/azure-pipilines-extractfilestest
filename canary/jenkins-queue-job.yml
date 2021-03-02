@@ -1,0 +1,10 @@
+jobs:
+- job: 'AzureVM_Ubuntu'
+  displayName: AzureVM_Ubuntu
+  pool: 
+    name: 'SSHTestAgents'
+    demands:
+      - Agent.OS -equals Linux
+  condition: and(succeeded(),  contains(variables.targetPools, 'SSHTestAgents'))
+  steps:
+    - template: src/jenkins/queue-job/test-queue-job.yml
