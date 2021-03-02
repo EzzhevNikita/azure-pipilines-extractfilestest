@@ -1,0 +1,17 @@
+steps:
+  - task: CmdLine@2
+    displayName: 'pod install with command line'
+    inputs:
+      script: 'pod install'
+      workingDirectory: '$(System.DefaultWorkingDirectory)/src/cocoa-pods/swiftyjson-4.2'
+
+  - task: CocoaPods@0
+    displayName: 'pod install with project directory specified'
+    inputs:
+      projectDirectory: '$(System.DefaultWorkingDirectory)/src/cocoa-pods/swiftyjson-4.2'
+
+  - task: CocoaPods@0
+    displayName: 'pod install with forced repo update and project directory specified'
+    inputs:
+      forceRepoUpdate: true
+      projectDirectory: '$(System.DefaultWorkingDirectory)/src/cocoa-pods/swiftyjson-4.2'
