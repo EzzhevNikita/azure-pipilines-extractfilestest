@@ -1,17 +1,23 @@
-steps:
-  - task: CmdLine@2
-    displayName: 'pod install with command line'
-    inputs:
-      script: 'pod install'
-      workingDirectory: '$(System.DefaultWorkingDirectory)/canary/src/cocoa-pods/swiftyjson-4.2'
+jobs:
+  - job: 'pod_install_with_command_line'
+    steps:
+    - task: CmdLine@2
+      displayName: 'pod install with command line'
+      inputs:
+        script: 'pod install'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/canary/src/cocoa-pods/swiftyjson-4.2'
 
-  - task: CocoaPods@0
-    displayName: 'pod install with project directory specified'
-    inputs:
-      projectDirectory: '$(System.DefaultWorkingDirectory)/canary/src/cocoa-pods/swiftyjson-4.2'
+  - job: 'pod_install_with_project_directory_specified'
+    steps:
+    - task: CocoaPods@0
+      displayName: 'pod install with project directory specified'
+      inputs:
+        projectDirectory: '$(System.DefaultWorkingDirectory)/canary/src/cocoa-pods/swiftyjson-4.2'
 
-  - task: CocoaPods@0
-    displayName: 'pod install with forced repo update and project directory specified'
-    inputs:
-      forceRepoUpdate: true
-      projectDirectory: '$(System.DefaultWorkingDirectory)/canary/src/cocoa-pods/swiftyjson-4.2'
+  - job: 'pod_install_with_forced_repo_update_and_project_directory_specified'
+    steps:
+    - task: CocoaPods@0
+      displayName: 'pod install with forced repo update and project directory specified'
+      inputs:
+        forceRepoUpdate: true
+        projectDirectory: '$(System.DefaultWorkingDirectory)/canary/src/cocoa-pods/swiftyjson-4.2'

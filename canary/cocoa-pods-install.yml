@@ -1,12 +1,14 @@
-jobs:
-- job: 'MacOS_Public_Mojave'
+stages:
+- stage: 'MacOS_Public_Mojave'
+  dependsOn: []
   pool:
     vmImage: 'macos-10.14'
-  steps:
+  jobs:
   - template: src/cocoa-pods/macos-cocoapods-steps.yml
 
-- job: 'MacOS_Public_Catalina'
+- stage: 'MacOS_Public_Catalina'
+  dependsOn: []
   pool:
     vmImage: 'macos-10.15'
-  steps:
+  jobs:
   - template: src/cocoa-pods/macos-cocoapods-steps.yml
