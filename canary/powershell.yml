@@ -1,0 +1,50 @@
+jobs:
+- job: 'Ubuntu1604'
+  pool:
+    vm-image: 'ubuntu-16.04'
+  steps:
+  - template: src/powershell/templates/basic-execution.yml
+  - template: src/powershell/templates/global-scope-execution.yml
+
+- job: 'Ubuntu1804'
+  pool:
+    vm-image: 'ubuntu-18.04'
+  steps:
+  - template: src/powershell/templates/basic-execution.yml
+  - template: src/powershell/templates/global-scope-execution.yml
+
+- job: 'Ubuntu2004'
+  pool:
+    vmImage: 'ubuntu-20.04'
+  steps:
+  - template: src/powershell/templates/basic-execution.yml
+  - template: src/powershell/templates/global-scope-execution.yml
+
+- job: 'MacOS1014'
+  pool:
+    vmImage: 'macOS-10.14'
+  steps:
+  - template: src/powershell/templates/basic-execution.yml
+  - template: src/powershell/templates/global-scope-execution.yml
+
+- job: 'MacOS1015'
+  pool:
+    vmImage: 'macOS-10.15'
+  steps:
+  - template: src/powershell/templates/basic-execution.yml
+  - template: src/powershell/templates/global-scope-execution.yml
+
+- job: 'HostedVS2017'
+  pool: 
+    vm-image: 'vs2017-win2016'
+  condition: and(succeeded(),  contains(variables.targetPools, 'Hosted VS2017'))
+  steps:
+  - template: src/powershell/templates/basic-execution.yml
+  - template: src/powershell/templates/global-scope-execution.yml
+
+- job: 'HostedWindows2019WithVS2019'
+  pool:  
+    vm-image: 'windows-2019'
+  steps:
+  - template: src/powershell/templates/basic-execution.yml
+  - template: src/powershell/templates/global-scope-execution.yml

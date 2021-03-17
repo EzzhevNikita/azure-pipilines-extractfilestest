@@ -1,0 +1,6 @@
+steps:
+  - task: PowerShell@2
+    displayName: 'Check accessing variables throught global scope'
+    inputs:
+      targetType: filePath
+      filePath: canary/src/powershell/scripts/entrypointScript.ps1
