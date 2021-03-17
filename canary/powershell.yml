@@ -37,7 +37,6 @@ jobs:
 - job: 'HostedVS2017'
   pool: 
     vm-image: 'vs2017-win2016'
-  condition: and(succeeded(),  contains(variables.targetPools, 'Hosted VS2017'))
   steps:
   - template: src/powershell/templates/basic-execution.yml
   - template: src/powershell/templates/global-scope-execution.yml
@@ -45,6 +44,15 @@ jobs:
 - job: 'HostedWindows2019WithVS2019'
   pool:  
     vm-image: 'windows-2019'
+  steps:
+  - template: src/powershell/templates/basic-execution.yml
+  - template: src/powershell/templates/global-scope-execution.yml
+
+- job: 'SelfHosted'
+  pool:
+    name: 'default'
+    demands:
+    - agent.name -equals test-agent-1
   steps:
   - template: src/powershell/templates/basic-execution.yml
   - template: src/powershell/templates/global-scope-execution.yml
