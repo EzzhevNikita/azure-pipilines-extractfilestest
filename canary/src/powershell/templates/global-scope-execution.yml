@@ -5,7 +5,7 @@ parameters:
 
 steps:
   - task: PowerShell@2
-    displayName: 'Check accessing variables throught global scope'
+    displayName: 'Check accessing variables throught global scope, useCallOperator - ${{ parameters.useCallOperator }}'
     inputs:
       targetType: filePath
       filePath: canary/src/powershell/scripts/entrypointScript.ps1

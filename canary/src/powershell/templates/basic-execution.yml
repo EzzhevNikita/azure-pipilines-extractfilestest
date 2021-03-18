@@ -6,21 +6,21 @@ parameters:
 
 steps:
 - task: PowerShell@2
-  displayName: 'Inline script'
+  displayName: 'Inline script, useCallOperator - ${{ parameters.useCallOperator }}'
   inputs:
     targetType: inline
     script: 'Write-Host hello'
     useCallOperator:  ${{ parameters.useCallOperator }}
 
 - task: PowerShell@2
-  displayName: 'Script from file'
+  displayName: 'Script from file, useCallOperator - ${{ parameters.useCallOperator }}'
   inputs:
     targetType: filePath
     filePath: canary/src/powershell/scripts/hello.ps1
     useCallOperator:  ${{ parameters.useCallOperator }}
 
 - task: PowerShell@2
-  displayName: 'Script from file with args'
+  displayName: 'Script from file with args, useCallOperator - ${{ parameters.useCallOperator }}'
   inputs:
     targetType: filePath
     filePath: canary/src/powershell/scripts/args.ps1
