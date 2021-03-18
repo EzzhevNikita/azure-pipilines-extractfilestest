@@ -1,6 +1,8 @@
 parameters:
   - name: "useCallOperator"
-    type: bool
+    type: boolean
+    default: false
+
 
 steps:
 - task: PowerShell@2
