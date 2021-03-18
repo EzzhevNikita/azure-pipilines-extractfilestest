@@ -4,16 +4,16 @@ jobs:
     vm-image: 'ubuntu-16.04'
   steps:
   - template: src/powershell/templates/basic-execution.yml
-      parameters:
+    parameters:
       useCallOperator: true
   - template: src/powershell/templates/basic-execution.yml
-      parameters:
+    parameters:
       useCallOperator: false
   - template: src/powershell/templates/global-scope-execution.yml
-      parameters:
+    parameters:
       useCallOperator: true
   - template: src/powershell/templates/global-scope-execution.yml
-      parameters:
+    parameters:
       useCallOperator: false
 
 - job: 'Ubuntu1804'
@@ -21,16 +21,16 @@ jobs:
     vm-image: 'ubuntu-18.04'
   steps:
   - template: src/powershell/templates/basic-execution.yml
-      parameters:
+    parameters:
       useCallOperator: true
   - template: src/powershell/templates/basic-execution.yml
-      parameters:
+    parameters:
       useCallOperator: false
   - template: src/powershell/templates/global-scope-execution.yml
-      parameters:
+    parameters:
       useCallOperator: true
   - template: src/powershell/templates/global-scope-execution.yml
-      parameters:
+    parameters:
       useCallOperator: false
 
 - job: 'Ubuntu2004'
@@ -38,16 +38,16 @@ jobs:
     vmImage: 'ubuntu-20.04'
   steps:
   - template: src/powershell/templates/basic-execution.yml
-      parameters:
+    parameters:
       useCallOperator: true
   - template: src/powershell/templates/basic-execution.yml
-      parameters:
+    parameters:
       useCallOperator: false
   - template: src/powershell/templates/global-scope-execution.yml
-      parameters:
+    parameters:
       useCallOperator: true
   - template: src/powershell/templates/global-scope-execution.yml
-      parameters:
+    parameters:
       useCallOperator: false
 
 - job: 'MacOS1014'
@@ -55,16 +55,16 @@ jobs:
     vmImage: 'macOS-10.14'
   steps:
   - template: src/powershell/templates/basic-execution.yml
-      parameters:
+    parameters:
       useCallOperator: true
   - template: src/powershell/templates/basic-execution.yml
-      parameters:
+    parameters:
       useCallOperator: false
   - template: src/powershell/templates/global-scope-execution.yml
-      parameters:
+    parameters:
       useCallOperator: true
   - template: src/powershell/templates/global-scope-execution.yml
-      parameters:
+    parameters:
       useCallOperator: false
 
 - job: 'MacOS1015'
@@ -72,16 +72,16 @@ jobs:
     vmImage: 'macOS-10.15'
   steps:
   - template: src/powershell/templates/basic-execution.yml
-      parameters:
+    parameters:
       useCallOperator: true
   - template: src/powershell/templates/basic-execution.yml
-      parameters:
+    parameters:
       useCallOperator: false
   - template: src/powershell/templates/global-scope-execution.yml
-      parameters:
+    parameters:
       useCallOperator: true
   - template: src/powershell/templates/global-scope-execution.yml
-      parameters:
+    parameters:
       useCallOperator: false
 
 - job: 'HostedVS2017'
@@ -89,16 +89,16 @@ jobs:
     vm-image: 'vs2017-win2016'
   steps:
   - template: src/powershell/templates/basic-execution.yml
-      parameters:
+    parameters:
       useCallOperator: true
   - template: src/powershell/templates/basic-execution.yml
-      parameters:
+    parameters:
       useCallOperator: false
   - template: src/powershell/templates/global-scope-execution.yml
-      parameters:
+    parameters:
       useCallOperator: true
   - template: src/powershell/templates/global-scope-execution.yml
-      parameters:
+    parameters:
       useCallOperator: false
 
 - job: 'HostedWindows2019WithVS2019'
@@ -106,16 +106,16 @@ jobs:
     vm-image: 'windows-2019'
   steps:
   - template: src/powershell/templates/basic-execution.yml
-      parameters:
+    parameters:
       useCallOperator: true
   - template: src/powershell/templates/basic-execution.yml
-      parameters:
+    parameters:
       useCallOperator: false
   - template: src/powershell/templates/global-scope-execution.yml
-      parameters:
+    parameters:
       useCallOperator: true
   - template: src/powershell/templates/global-scope-execution.yml
-      parameters:
+    parameters:
       useCallOperator: false
 
 - job: 'SelfHosted'
@@ -125,14 +125,14 @@ jobs:
     - agent.name -equals test-agent-1
   steps:
   - template: src/powershell/templates/basic-execution.yml
-      parameters:
+    parameters:
       useCallOperator: true
   - template: src/powershell/templates/basic-execution.yml
-      parameters:
+    parameters:
       useCallOperator: false
   - template: src/powershell/templates/global-scope-execution.yml
-      parameters:
+    parameters:
       useCallOperator: true
   - template: src/powershell/templates/global-scope-execution.yml
-      parameters:
+    parameters:
       useCallOperator: false
