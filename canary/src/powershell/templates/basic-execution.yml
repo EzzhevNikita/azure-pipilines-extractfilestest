@@ -1,17 +1,21 @@
+parameters:
+  - name: "useCallOperator"
+    type: bool
+
 steps:
 - task: PowerShell@2
   displayName: 'Inline script'
   inputs:
     targetType: inline
     script: 'Write-Host hello'
-    useCallOperator: true
+    useCallOperator:  ${{ parameters.useCallOperator }}
 
 - task: PowerShell@2
   displayName: 'Script from file'
   inputs:
     targetType: filePath
     filePath: canary/src/powershell/scripts/hello.ps1
-    useCallOperator: true
+    useCallOperator:  ${{ parameters.useCallOperator }}
 
 - task: PowerShell@2
   displayName: 'Script from file with args'
@@ -19,4 +23,4 @@ steps:
     targetType: filePath
     filePath: canary/src/powershell/scripts/args.ps1
     arguments: hello
-    useCallOperator: true
+    useCallOperator:  ${{ parameters.useCallOperator }}
