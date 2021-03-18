@@ -1,5 +1,5 @@
 param(
-  [Parameter(Mandatory=$false)][string] $Variable1 = "Test variable value"
+  [Parameter(Mandatory=$false)][string] $Variable1 = "Test variable value",
   [bool] $useCallOperator
 )
 
