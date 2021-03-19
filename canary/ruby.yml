@@ -1,0 +1,215 @@
+#------------------------------------------------------
+# Run Ruby Gems
+# on Ubuntu, VS2017 and Mac hosted VMs
+#------------------------------------------------------
+stages:
+- stage: 'Ubuntu_1604'
+  dependsOn: []
+  jobs:
+  - job: 'Use_specific_Ruby_version'
+    pool:
+      vmImage: 'ubuntu-16.04'
+    steps:
+    - template: src/ruby/templates/use-ruby-template.yml
+  - job:
+    pool:
+      vmImage: 'ubuntu-16.04'
+    strategy:
+      matrix:
+        Ruby24:
+          ruby.version: '2.4'
+        Ruby25:
+          ruby.version: '2.5'
+        Ruby26:
+          ruby.version: '2.6'
+        Ruby27:
+          ruby.version: '2.7'
+        Ruby30:
+          ruby.version: '3.0'
+    steps:
+    - task: UseRubyVersion@0
+      inputs:
+        versionSpec: $(ruby.version)
+    - template: src/ruby/templates/ruby-gem-steps.yml
+
+- stage: 'Ubuntu_1804'
+  dependsOn: []
+  jobs:
+  - job: 'Use_specific_Ruby_version'
+    pool:
+      vmImage: 'ubuntu-18.04'
+    steps:
+    - template: src/ruby/templates/use-ruby-template.yml
+  - job:
+    pool:
+      vmImage: 'ubuntu-18.04'
+    strategy:
+      matrix:
+        Ruby24:
+          ruby.version: '2.4'
+        Ruby25:
+          ruby.version: '2.5'
+        Ruby26:
+          ruby.version: '2.6'
+        Ruby27:
+          ruby.version: '2.7'
+        Ruby30:
+          ruby.version: '3.0'
+    steps:
+    - task: UseRubyVersion@0
+      inputs:
+        versionSpec: $(ruby.version)
+    - template: src/ruby/templates/ruby-gem-steps.yml
+
+- stage: 'Ubuntu_2004'
+  dependsOn: []
+  jobs:
+  - job: 'Use_specific_Ruby_version'
+    pool:
+      vmImage: 'ubuntu-20.04'
+    steps:
+    - template: src/ruby/templates/use-ruby-template.yml
+  - job:
+    pool:
+      vmImage: 'ubuntu-20.04'
+    strategy:
+      matrix:
+        Ruby25:
+          ruby.version: '2.5'
+        Ruby26:
+          ruby.version: '2.6'
+        Ruby27:
+          ruby.version: '2.7'
+        Ruby30:
+          ruby.version: '3.0'
+    steps:
+    - task: UseRubyVersion@0
+      inputs:
+        versionSpec: $(ruby.version)
+    - template: src/ruby/templates/ruby-gem-steps.yml
+
+- stage: 'VS2017'
+  dependsOn: []
+  jobs:
+  - job: 'Use_specific_Ruby_version'
+    pool: 
+      vmImage: 'vs2017-win2016'
+    steps:
+    - template: src/ruby/templates/use-ruby-template.yml
+  - job:
+    pool: 
+      vmImage: 'vs2017-win2016'
+    strategy:
+      matrix:
+        Ruby24:
+          ruby.version: '2.4'
+        Ruby25:
+          ruby.version: '2.5'
+        Ruby26:
+          ruby.version: '2.6'
+        Ruby27:
+          ruby.version: '2.7'
+        Ruby30:
+          ruby.version: '3.0'
+    steps:
+    - task: UseRubyVersion@0
+      inputs:
+        versionSpec: $(ruby.version)
+    - template: src/ruby/templates/ruby-gem-steps.yml
+
+- stage: 'VS2019'
+  dependsOn: []
+  jobs:
+  - job: 'Use_specific_Ruby_version'
+    pool: 
+      vmImage: 'windows-2019'
+    steps:
+    - template: src/ruby/templates/use-ruby-template.yml
+  - job:
+    pool: 
+      vmImage: 'windows-2019'
+    strategy:
+      matrix:
+        Ruby24:
+          ruby.version: '2.4'
+        Ruby25:
+          ruby.version: '2.5'
+        Ruby26:
+          ruby.version: '2.6'
+        Ruby27:
+          ruby.version: '2.7'
+        Ruby30:
+          ruby.version: '3.0'
+    steps:
+    - task: UseRubyVersion@0
+      inputs:
+        versionSpec: $(ruby.version)
+    - template: src/ruby/templates/ruby-gem-steps.yml
+
+- stage: 'MacOS_Public_Mojave'
+  dependsOn: []
+  jobs:
+  - job: 'Use_specific_Ruby_version'
+    pool:
+      vmImage: 'macos-10.14'
+    steps:
+    - template: src/ruby/templates/use-ruby-template.yml
+  - job:
+    pool:
+      vmImage: 'macos-10.14'
+    strategy:
+      matrix:
+        Ruby24:
+          ruby.version: '2.4'
+        Ruby25:
+          ruby.version: '2.5'
+        Ruby26:
+          ruby.version: '2.6'
+        Ruby27:
+          ruby.version: '2.7'
+        Ruby30:
+          ruby.version: '3.0'
+    steps:
+    - task: UseRubyVersion@0
+      inputs:
+        versionSpec: $(ruby.version)
+    - template: src/ruby/templates/ruby-gem-steps.yml
+  - job: 'Default_Ruby'
+    pool:
+      vmImage: 'macos-10.14'
+    steps:
+    - template: src/ruby/templates/ruby-gem-steps.yml
+
+- stage: 'MacOS_Public_Catalina'
+  dependsOn: []
+  jobs:
+  - job: 'Use_specific_Ruby_version'
+    pool:
+      vmImage: 'macos-10.15'
+    steps:
+    - template: src/ruby/templates/use-ruby-template.yml
+  - job:
+    pool:
+      vmImage: 'macos-10.15'
+    strategy:
+      matrix:
+        Ruby24:
+          ruby.version: '2.4'
+        Ruby25:
+          ruby.version: '2.5'
+        Ruby26:
+          ruby.version: '2.6'
+        Ruby27:
+          ruby.version: '2.7'
+        Ruby30:
+          ruby.version: '3.0'
+    steps:
+    - task: UseRubyVersion@0
+      inputs:
+        versionSpec: $(ruby.version)
+    - template: src/ruby/templates/ruby-gem-steps.yml
+  - job: 'Default_Ruby'
+    pool:
+      vmImage: 'macos-10.15'
+    steps:
+    - template: src/ruby/templates/ruby-gem-steps.yml
