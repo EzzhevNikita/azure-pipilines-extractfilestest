@@ -1,0 +1,39 @@
+steps:
+- powershell: |
+    $version = $(python --version)
+    Write-Host "Python version in PATH: $version"
+    Write-Host "PATH: $env:PATH"
+
+    if ($version -notlike "Python 3.6*" -And $version -notlike "Python 3.7*")
+    {
+        Write-Error "Expected Python 3.6 or 3.7"
+        exit 1
+    }
+  displayName: Check Python version
+
+- powershell: |
+    $version = $(pip --version)[0]
+    Write-Host "Pip version in PATH: $version"
+    Write-Host "PATH: $env:PATH"
+
+    if ($(pip --version)[0] -notlike "*(python 3.6)*" -And $(pip --version)[0] -notlike "*(python 3.7)*")
+    {
+        Write-Error "Expected Pip from Python 3.6 or 3.7"
+        exit 1
+    }
+
+  displayName: 'Check pip version'
+
+- powershell: python -m pip install --upgrade pip
+  displayName: Update pip
+
+- powershell: pip install requests
+  displayName: Test pip install
+
+- task: PythonScript@0
+  inputs:
+    scriptSource: inline
+    script: |
+      import requests
+      print('hello world')
+  displayName: Run a Python script

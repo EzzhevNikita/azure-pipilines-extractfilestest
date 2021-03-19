@@ -1,0 +1,35 @@
+# the test is caused by the incedent https://portal.microsofticm.com/imp/v3/incidents/details/194946672/home
+# the purpose of the test is to ensure pyton can use pipenv
+
+steps:
+- task: UsePythonVersion@0
+  displayName: Use Python $(python.version)
+  inputs:
+    versionSpec: $(python.version)
+
+- task: Bash@3
+  inputs:
+    targetType: filePath
+    filePath: canary/src/python/pipenv/create-pipfile.sh
+    arguments: $(python.version)
+    workingDirectory: '$(Build.SourcesDirectory)/canary/src/python/pipenv/'
+  displayName: Create pipfile
+
+- script: |
+    python -m pip install --upgrade pip
+  workingDirectory: '$(Build.SourcesDirectory)/canary/src/python/pipenv/'
+  displayName: Upgrade Pip 
+
+# the client reported the problem with v2018.11.26
+- script: |
+    pip install pipenv==2018.11.26
+  workingDirectory: '$(Build.SourcesDirectory)/canary/src/python/pipenv/'
+  displayName: Install Pipenv
+
+# this step is the core of the test and its purpose is to confirm 
+# the creating of the environment takes no more than a minute
+- script: |
+    echo ENVIRONMENT=dev>> .env
+    pipenv install --dev --deploy --python=python.exe
+  workingDirectory: '$(Build.SourcesDirectory)/canary/src/python/pipenv/'
+  displayName: Use pipenv

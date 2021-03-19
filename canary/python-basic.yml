@@ -1,0 +1,402 @@
+stages:
+- stage: 'Hosted_Ubuntu_1604'
+  dependsOn: []
+  jobs:
+
+  - job: 'addToPath'
+    pool:
+      vm-image: 'ubuntu-16.04'
+    steps:
+    - template: src/python/templates/use-python-template.yml
+
+  - job: 'Package'
+    pool:
+      vm-image: 'ubuntu-16.04'
+    steps:
+    - template: src/python/templates/package.yml
+
+  - job: 'Install_sdist_build_ext'
+    pool:
+      vm-image: 'ubuntu-16.04'
+    strategy:
+      matrix:
+        Python27:
+          python.version: '2.7'
+        Python35:
+          python.version: '3.5'
+        Python36:
+          python.version: '3.6'
+        Python37:
+          python.version: '3.7'
+        Python38:
+          python.version: '3.8'
+        Python39:
+          python.version: '3.9'
+    steps:
+    - template: src/python/templates/test-build-ext.yml
+
+  - job: 'Build_C_Extension'
+    pool:
+      vm-image: 'ubuntu-16.04'
+    strategy:
+      matrix:
+        Python35:
+          python.version: '3.5'
+        Python36:
+          python.version: '3.6'
+        Python37:
+          python.version: '3.7'
+        Python38:
+          python.version: '3.8'
+        Python39:
+          python.version: '3.9'
+    steps:
+    - template: src/python/templates/c-extension.yml
+
+  - job: 'Default'
+    pool:
+      vm-image: 'ubuntu-16.04'
+    steps:
+    - template: src/python/templates/test-default.yml
+
+- stage: 'Hosted_Ubuntu_1804'
+  dependsOn: []
+  jobs:
+
+  - job: 'addToPath'
+    pool:
+      vm-image: 'ubuntu-18.04'
+    steps:
+    - template: src/python/templates/use-python-template.yml
+
+  - job: 'Package'
+    pool:
+      vm-image: 'ubuntu-18.04'
+    steps:
+    - template: src/python/templates/package.yml
+
+  - job: 'Install_sdist_build_ext'
+    pool:
+      vm-image: 'ubuntu-18.04'
+    strategy:
+      matrix:
+        Python27:
+          python.version: '2.7'
+        Python35:
+          python.version: '3.5'
+        Python36:
+          python.version: '3.6'
+        Python37:
+          python.version: '3.7'
+        Python38:
+          python.version: '3.8'
+        Python39:
+          python.version: '3.9'
+    steps:
+    - template: src/python/templates/test-build-ext.yml
+
+  - job: 'Build_C_Extension'
+    pool:
+      vm-image: 'ubuntu-18.04'
+    strategy:
+      matrix:
+        Python35:
+          python.version: '3.5'
+        Python36:
+          python.version: '3.6'
+        Python37:
+          python.version: '3.7'
+        Python38:
+          python.version: '3.8'
+        Python39:
+          python.version: '3.9'
+    steps:
+    - template: src/python/templates/c-extension.yml
+
+  - job: 'Default'
+    pool:
+      vm-image: 'ubuntu-18.04'
+    steps:
+    - template: src/python/templates/test-default.yml
+
+- stage: 'Hosted_Ubuntu_2004'
+  dependsOn: []
+  jobs:
+
+  - job: 'addToPath'
+    pool:
+      vmImage: 'ubuntu-20.04'
+    steps:
+    - template: src/python/templates/use-python-template.yml
+
+  - job: 'Package'
+    pool:
+      vmImage: 'ubuntu-20.04'
+    steps:
+    - template: src/python/templates/package.yml
+
+  - job: 'Install_sdist_build_ext'
+    pool:
+      vmImage: 'ubuntu-20.04'
+    strategy:
+      matrix:
+        Python27:
+          python.version: '2.7'
+        Python35:
+          python.version: '3.5'
+        Python36:
+          python.version: '3.6'
+        Python37:
+          python.version: '3.7'
+        Python38:
+          python.version: '3.8'
+        Python39:
+          python.version: '3.9'
+    steps:
+    - template: src/python/templates/test-build-ext.yml
+
+  - job: 'Build_C_Extension'
+    pool:
+      vmImage: 'ubuntu-20.04'
+    strategy:
+      matrix:
+        Python35:
+          python.version: '3.5'
+        Python36:
+          python.version: '3.6'
+        Python37:
+          python.version: '3.7'
+        Python38:
+          python.version: '3.8'
+        Python39:
+          python.version: '3.9'
+    steps:
+    - template: src/python/templates/c-extension.yml
+
+  - job: 'Default_Python3_Check'
+    pool:
+      vmImage: 'ubuntu-20.04'
+    steps:
+    - template: src/python/templates/test-ubuntu-default.yml
+
+  - job: 'Default'
+    pool:
+      vmImage: 'ubuntu-20.04'
+    steps:
+    - template: src/python/templates/test-default.yml
+
+- stage: 'Hosted_VS2017'
+  dependsOn: []
+  jobs:
+
+  - job: 'addToPath'
+    pool: 
+      vm-image: 'vs2017-win2016'
+    steps:
+    - template: src/python/templates/use-python-template.yml
+
+  - job: 'Win2016'
+    pool: 
+      vm-image: 'vs2017-win2016'
+    steps:
+    - template: src/python/templates/package.yml
+
+  - job: 'Build_C_Extension'
+    pool: 
+      vm-image: 'vs2017-win2016'
+    strategy:
+      matrix:
+        Python35:
+          python.version: '3.5'
+        Python36:
+          python.version: '3.6'
+        Python37:
+          python.version: '3.7'
+        Python38:
+          python.version: '3.8'
+        Python39:
+          python.version: '3.9'
+    steps:
+    - template: src/python/templates/c-extension.yml
+
+  - job: 'Default'
+    pool: 
+      vm-image: 'vs2017-win2016'
+    steps:
+    - template: src/python/templates/test-default.yml
+
+- stage: 'Hosted_Windows_2019_with_VS2019'
+  dependsOn: []
+  jobs:
+
+  - job: 'addToPath'
+    pool:  
+      vm-image: 'windows-2019'
+    steps:
+    - template: src/python/templates/use-python-template.yml
+
+  - job: 'Package'
+    pool:  
+      vm-image: 'windows-2019'
+    steps:
+    - template: src/python/templates/package.yml
+
+  - job: 'Build_C_Extension'
+    pool:  
+      vm-image: 'windows-2019'
+    strategy:
+      matrix:
+        Python36:
+          python.version: '3.6'
+        Python37:
+          python.version: '3.7'
+        Python38:
+          python.version: '3.8'
+        Python39:
+          python.version: '3.9'
+    steps:
+    - template: src/python/templates/c-extension.yml
+
+  - job: 'Default'
+    pool:  
+      vm-image: 'windows-2019'
+    steps:
+    - template: src/python/templates/test-default.yml
+
+- stage: 'MacOS_Public_Mojave'
+  dependsOn: []
+  jobs:
+
+  - job: 'addToPath'
+    pool:
+      vmImage: 'macOS-10.14'
+    steps:
+    - template: src/python/templates/use-python-template.yml
+
+  - job: 'Package'
+    pool:
+      vmImage: 'macOS-10.14'
+    steps:
+    - template: src/python/templates/package.yml
+
+  - job: 'Default'
+    pool:
+      vmImage: 'macOS-10.14'
+    steps:
+    - template: src/python/templates/test-default.yml
+
+  - job: 'Pip3_test'
+    pool:
+      vmImage: 'macOS-10.14'
+    steps:
+    - template: src/python/templates/test-pip3.yml
+
+  - job: 'Install_sdist_build_ext'
+    pool:
+      vmImage: 'macOS-10.14'
+    strategy:
+      matrix:
+        Python27:
+          python.version: '2.7'
+        Python35:
+          python.version: '3.5'
+        Python36:
+          python.version: '3.6'
+        Python37:
+          python.version: '3.7'
+        Python38:
+          python.version: '3.8'
+        Python39:
+          python.version: '3.9'
+    steps:
+    - template: src/python/templates/test-build-ext.yml
+
+- stage: 'MacOS_Public_Catalina'
+  dependsOn: []
+  jobs:
+
+  - job: 'addToPath'
+    pool:
+      vmImage: 'macOS-10.15'
+    steps:
+    - template: src/python/templates/use-python-template.yml
+
+  - job: 'Package'
+    pool:
+      vmImage: 'macOS-10.15'
+    steps:
+    - template: src/python/templates/package.yml
+
+  - job: 'Default'
+    pool:
+      vmImage: 'macOS-10.15'
+    steps:
+    - template: src/python/templates/test-default.yml
+
+  - job: 'Pip3_test'
+    pool:
+      vmImage: 'macOS-10.15'
+    steps:
+    - template: src/python/templates/test-pip3.yml
+
+  - job: 'Install_sdist_build_ext'
+    pool:
+      vmImage: 'macOS-10.15'
+    strategy:
+      matrix:
+        Python27:
+          python.version: '2.7'
+        Python35:
+          python.version: '3.5'
+        Python36:
+          python.version: '3.6'
+        Python37:
+          python.version: '3.7'
+        Python38:
+          python.version: '3.8'
+        Python39:
+          python.version: '3.9'
+    steps:
+    - template: src/python/templates/test-build-ext.yml
+
+- stage: 'MacOS_Public_BigSur'
+  dependsOn: []
+  jobs:
+
+  - job: 'addToPath'
+    pool:
+      vmImage: 'macOS-11.0'
+    steps:
+    - template: src/python/templates/use-python-template.yml
+
+  - job: 'Package'
+    pool:
+      vmImage: 'macOS-11.0'
+    steps:
+    - template: src/python/templates/package.yml
+
+  - job: 'Default'
+    pool:
+      vmImage: 'macOS-11.0'
+    steps:
+    - template: src/python/templates/test-default.yml
+  
+  - job: 'Pip3_test'
+    pool:
+      vmImage: 'macOS-11.0'
+    steps:
+    - template: src/python/templates/test-pip3.yml
+
+  - job: 'Install_sdist_build_ext'
+    pool:
+      vmImage: 'macOS-11.0'
+    strategy:
+      matrix:
+        Python37:
+          python.version: '3.7'
+        Python38:
+          python.version: '3.8'
+        Python39:
+          python.version: '3.9'
+    steps:
+    - template: src/python/templates/test-build-ext.yml
