@@ -5,7 +5,7 @@ function MethodInOtherScript()  {
         $arg,
 
        [bool]
-       $useCallOperator
+       $runScriptInSeparateScope
     )
 
   Write-Output "Inner function called"
@@ -17,8 +17,8 @@ function MethodInOtherScript()  {
   }
 
   Write-Output "Call variables from Global scope"
-  Write-Output "Use Call operator - " $useCallOperator
-  if ( $useCallOperator )
+  Write-Output "Use Call operator - " $runScriptInSeparateScope
+  if ( $runScriptInSeparateScope )
   { 
     if (Get-Variable Variable1 -Scope Global -ErrorAction SilentlyContinue)
     { Write-Error "Variable shouldn't exist in global scope" -ErrorAction Stop } else {

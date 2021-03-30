@@ -1,138 +1,119 @@
 jobs:
 - job: 'Ubuntu1604'
+  strategy:
+    matrix:
+      RunInTheSameScope:
+        runScriptInSeparateScope: false
+      RunInSeparateScope:
+        runScriptInSeparateScope: true
   pool:
     vm-image: 'ubuntu-16.04'
   steps:
   - template: src/powershell/templates/basic-execution.yml
     parameters:
-      useCallOperator: true
-  - template: src/powershell/templates/basic-execution.yml
+      runScriptInSeparateScope: $(runScriptInSeparateScope)
+  - template: src/powershell/templates/test-scope-execution.yml
     parameters:
-      useCallOperator: false
-  - template: src/powershell/templates/global-scope-execution.yml
-    parameters:
-      useCallOperator: true
-  - template: src/powershell/templates/global-scope-execution.yml
-    parameters:
-      useCallOperator: false
+      runScriptInSeparateScope: $(runScriptInSeparateScope)
 
 - job: 'Ubuntu1804'
+  strategy:
+    matrix:
+      RunInTheSameScope:
+        runScriptInSeparateScope: false
+      RunInSeparateScope:
+        runScriptInSeparateScope: true
   pool:
     vm-image: 'ubuntu-18.04'
   steps:
   - template: src/powershell/templates/basic-execution.yml
     parameters:
-      useCallOperator: true
-  - template: src/powershell/templates/basic-execution.yml
+      runScriptInSeparateScope: $(runScriptInSeparateScope)
+  - template: src/powershell/templates/test-scope-execution.yml
     parameters:
-      useCallOperator: false
-  - template: src/powershell/templates/global-scope-execution.yml
-    parameters:
-      useCallOperator: true
-  - template: src/powershell/templates/global-scope-execution.yml
-    parameters:
-      useCallOperator: false
+      runScriptInSeparateScope: $(runScriptInSeparateScope)
 
 - job: 'Ubuntu2004'
+  strategy:
+    matrix:
+      RunInTheSameScope:
+        runScriptInSeparateScope: false
+      RunInSeparateScope:
+        runScriptInSeparateScope: true
   pool:
-    vmImage: 'ubuntu-20.04'
+    vm-image: 'ubuntu-20.04'
   steps:
   - template: src/powershell/templates/basic-execution.yml
     parameters:
-      useCallOperator: true
-  - template: src/powershell/templates/basic-execution.yml
+      runScriptInSeparateScope: $(runScriptInSeparateScope)
+  - template: src/powershell/templates/test-scope-execution.yml
     parameters:
-      useCallOperator: false
-  - template: src/powershell/templates/global-scope-execution.yml
-    parameters:
-      useCallOperator: true
-  - template: src/powershell/templates/global-scope-execution.yml
-    parameters:
-      useCallOperator: false
+      runScriptInSeparateScope: $(runScriptInSeparateScope)
 
 - job: 'MacOS1014'
+  strategy:
+    matrix:
+      RunInTheSameScope:
+        runScriptInSeparateScope: false
+      RunInSeparateScope:
+        runScriptInSeparateScope: true
   pool:
     vmImage: 'macOS-10.14'
   steps:
   - template: src/powershell/templates/basic-execution.yml
     parameters:
-      useCallOperator: true
-  - template: src/powershell/templates/basic-execution.yml
+      runScriptInSeparateScope: $(runScriptInSeparateScope)
+  - template: src/powershell/templates/test-scope-execution.yml
     parameters:
-      useCallOperator: false
-  - template: src/powershell/templates/global-scope-execution.yml
-    parameters:
-      useCallOperator: true
-  - template: src/powershell/templates/global-scope-execution.yml
-    parameters:
-      useCallOperator: false
+      runScriptInSeparateScope: $(runScriptInSeparateScope)
 
 - job: 'MacOS1015'
+  strategy:
+    matrix:
+      RunInTheSameScope:
+        runScriptInSeparateScope: false
+      RunInSeparateScope:
+        runScriptInSeparateScope: true
   pool:
     vmImage: 'macOS-10.15'
   steps:
   - template: src/powershell/templates/basic-execution.yml
     parameters:
-      useCallOperator: true
-  - template: src/powershell/templates/basic-execution.yml
+      runScriptInSeparateScope: $(runScriptInSeparateScope)
+  - template: src/powershell/templates/test-scope-execution.yml
     parameters:
-      useCallOperator: false
-  - template: src/powershell/templates/global-scope-execution.yml
-    parameters:
-      useCallOperator: true
-  - template: src/powershell/templates/global-scope-execution.yml
-    parameters:
-      useCallOperator: false
+      runScriptInSeparateScope: $(runScriptInSeparateScope)
 
 - job: 'HostedVS2017'
+  strategy:
+    matrix:
+      RunInTheSameScope:
+        runScriptInSeparateScope: false
+      RunInSeparateScope:
+        runScriptInSeparateScope: true
   pool: 
     vm-image: 'vs2017-win2016'
   steps:
   - template: src/powershell/templates/basic-execution.yml
     parameters:
-      useCallOperator: true
-  - template: src/powershell/templates/basic-execution.yml
+      runScriptInSeparateScope: $(runScriptInSeparateScope)
+  - template: src/powershell/templates/test-scope-execution.yml
     parameters:
-      useCallOperator: false
-  - template: src/powershell/templates/global-scope-execution.yml
-    parameters:
-      useCallOperator: true
-  - template: src/powershell/templates/global-scope-execution.yml
-    parameters:
-      useCallOperator: false
+      runScriptInSeparateScope: $(runScriptInSeparateScope)
 
 - job: 'HostedWindows2019WithVS2019'
+  strategy:
+    matrix:
+      RunInTheSameScope:
+        runScriptInSeparateScope: false
+      RunInSeparateScope:
+        runScriptInSeparateScope: true
   pool:  
     vm-image: 'windows-2019'
   steps:
   - template: src/powershell/templates/basic-execution.yml
     parameters:
-      useCallOperator: true
-  - template: src/powershell/templates/basic-execution.yml
+      runScriptInSeparateScope: $(runScriptInSeparateScope)
+  - template: src/powershell/templates/test-scope-execution.yml
     parameters:
-      useCallOperator: false
-  - template: src/powershell/templates/global-scope-execution.yml
-    parameters:
-      useCallOperator: true
-  - template: src/powershell/templates/global-scope-execution.yml
-    parameters:
-      useCallOperator: false
-
-- job: 'SelfHosted'
-  pool:
-    name: 'default'
-    demands:
-    - agent.name -equals test-agent-1
-  steps:
-  - template: src/powershell/templates/basic-execution.yml
-    parameters:
-      useCallOperator: true
-  - template: src/powershell/templates/basic-execution.yml
-    parameters:
-      useCallOperator: false
-  - template: src/powershell/templates/global-scope-execution.yml
-    parameters:
-      useCallOperator: true
-  - template: src/powershell/templates/global-scope-execution.yml
-    parameters:
-      useCallOperator: false
+      runScriptInSeparateScope: $(runScriptInSeparateScope)
