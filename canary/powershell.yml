@@ -4,10 +4,10 @@ jobs:
     matrix:
       RunInTheSameScope:
         type: boolean
-        runScriptInSeparateScope: false
+        runScriptInSeparateScope: False
       RunInSeparateScope:
         type: boolean
-        runScriptInSeparateScope: true
+        runScriptInSeparateScope: True
   pool:
     vm-image: 'ubuntu-16.04'
   steps:
@@ -23,10 +23,10 @@ jobs:
     matrix:
       RunInTheSameScope:
         type: boolean
-        runScriptInSeparateScope: false
+        runScriptInSeparateScope: False
       RunInSeparateScope:
         type: boolean
-        runScriptInSeparateScope: true
+        runScriptInSeparateScope: True
   pool:
     vm-image: 'ubuntu-18.04'
   steps:
@@ -42,10 +42,10 @@ jobs:
     matrix:
       RunInTheSameScope:
         type: boolean
-        runScriptInSeparateScope: false
+        runScriptInSeparateScope: False
       RunInSeparateScope:
         type: boolean
-        runScriptInSeparateScope: true
+        runScriptInSeparateScope: True
   pool:
     vm-image: 'ubuntu-20.04'
   steps:
@@ -61,10 +61,10 @@ jobs:
     matrix:
       RunInTheSameScope:
         type: boolean
-        runScriptInSeparateScope: false
+        runScriptInSeparateScope: False
       RunInSeparateScope:
         type: boolean
-        runScriptInSeparateScope: true
+        runScriptInSeparateScope: True
   pool:
     vmImage: 'macOS-10.14'
   steps:
@@ -80,10 +80,10 @@ jobs:
     matrix:
       RunInTheSameScope:
         type: boolean
-        runScriptInSeparateScope: false
+        runScriptInSeparateScope: False
       RunInSeparateScope:
         type: boolean
-        runScriptInSeparateScope: true
+        runScriptInSeparateScope: True
   pool:
     vmImage: 'macOS-10.15'
   steps:
@@ -99,10 +99,10 @@ jobs:
     matrix:
       RunInTheSameScope:
         type: boolean
-        runScriptInSeparateScope: false
+        runScriptInSeparateScope: False
       RunInSeparateScope:
         type: boolean
-        runScriptInSeparateScope: true
+        runScriptInSeparateScope: True
   pool: 
     vm-image: 'vs2017-win2016'
   steps:
@@ -118,10 +118,10 @@ jobs:
     matrix:
       RunInTheSameScope:
         type: boolean
-        runScriptInSeparateScope: false
+        runScriptInSeparateScope: False
       RunInSeparateScope:
         type: boolean
-        runScriptInSeparateScope: true
+        runScriptInSeparateScope: True
   pool:  
     vm-image: 'windows-2019'
   steps:
