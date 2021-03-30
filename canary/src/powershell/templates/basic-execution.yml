@@ -1,7 +1,7 @@
 parameters:
   - name: "runScriptInSeparateScope"
-    type: boolean
-    default: false
+    type: string
+    default: 'false'
 
 steps:
 - task: PowerShell@2

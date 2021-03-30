@@ -3,10 +3,8 @@ jobs:
   strategy:
     matrix:
       RunInTheSameScope:
-        type: boolean
         runScriptInSeparateScope: False
       RunInSeparateScope:
-        type: boolean
         runScriptInSeparateScope: True
   pool:
     vm-image: 'ubuntu-16.04'
@@ -22,10 +20,8 @@ jobs:
   strategy:
     matrix:
       RunInTheSameScope:
-        type: boolean
         runScriptInSeparateScope: False
       RunInSeparateScope:
-        type: boolean
         runScriptInSeparateScope: True
   pool:
     vm-image: 'ubuntu-18.04'
@@ -41,10 +37,8 @@ jobs:
   strategy:
     matrix:
       RunInTheSameScope:
-        type: boolean
         runScriptInSeparateScope: False
       RunInSeparateScope:
-        type: boolean
         runScriptInSeparateScope: True
   pool:
     vm-image: 'ubuntu-20.04'
@@ -60,10 +54,8 @@ jobs:
   strategy:
     matrix:
       RunInTheSameScope:
-        type: boolean
         runScriptInSeparateScope: False
       RunInSeparateScope:
-        type: boolean
         runScriptInSeparateScope: True
   pool:
     vmImage: 'macOS-10.14'
@@ -79,10 +71,8 @@ jobs:
   strategy:
     matrix:
       RunInTheSameScope:
-        type: boolean
         runScriptInSeparateScope: False
       RunInSeparateScope:
-        type: boolean
         runScriptInSeparateScope: True
   pool:
     vmImage: 'macOS-10.15'
@@ -98,10 +88,8 @@ jobs:
   strategy:
     matrix:
       RunInTheSameScope:
-        type: boolean
         runScriptInSeparateScope: False
       RunInSeparateScope:
-        type: boolean
         runScriptInSeparateScope: True
   pool: 
     vm-image: 'vs2017-win2016'
@@ -117,10 +105,8 @@ jobs:
   strategy:
     matrix:
       RunInTheSameScope:
-        type: boolean
         runScriptInSeparateScope: False
       RunInSeparateScope:
-        type: boolean
         runScriptInSeparateScope: True
   pool:  
     vm-image: 'windows-2019'
