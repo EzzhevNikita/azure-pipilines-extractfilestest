@@ -1,9 +1,6 @@
 function MethodInOtherScript()  { 
 
   param(
-        [string]
-        $arg,
-
        [bool]
        $runScriptInSeparateScope
     )

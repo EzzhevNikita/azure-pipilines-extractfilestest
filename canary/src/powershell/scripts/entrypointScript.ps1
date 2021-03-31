@@ -13,4 +13,4 @@ try {
 
 Write-Host "Variables defined in entrypoint file v1 = $Variable1"
 
-MethodInOtherScript -arg "Script arg" -runScriptInSeparateScope $runScriptInSeparateScopeBool
+MethodInOtherScript -runScriptInSeparateScope $runScriptInSeparateScopeBool
