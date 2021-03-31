@@ -1,119 +1,49 @@
 jobs:
 - job: 'Ubuntu1604'
-  strategy:
-    matrix:
-      RunInTheSameScope:
-        runScriptInSeparateScope: False
-      RunInSeparateScope:
-        runScriptInSeparateScope: True
   pool:
     vm-image: 'ubuntu-16.04'
   steps:
   - template: src/powershell/templates/basic-execution.yml
-    parameters:
-      runScriptInSeparateScope: $(runScriptInSeparateScope)
   - template: src/powershell/templates/test-scope-execution.yml
-    parameters:
-      runScriptInSeparateScope: $(runScriptInSeparateScope)
 
 - job: 'Ubuntu1804'
-  strategy:
-    matrix:
-      RunInTheSameScope:
-        runScriptInSeparateScope: False
-      RunInSeparateScope:
-        runScriptInSeparateScope: True
   pool:
     vm-image: 'ubuntu-18.04'
   steps:
   - template: src/powershell/templates/basic-execution.yml
-    parameters:
-      runScriptInSeparateScope: $(runScriptInSeparateScope)
   - template: src/powershell/templates/test-scope-execution.yml
-    parameters:
-      runScriptInSeparateScope: $(runScriptInSeparateScope)
 
 - job: 'Ubuntu2004'
-  strategy:
-    matrix:
-      RunInTheSameScope:
-        runScriptInSeparateScope: False
-      RunInSeparateScope:
-        runScriptInSeparateScope: True
   pool:
     vm-image: 'ubuntu-20.04'
   steps:
   - template: src/powershell/templates/basic-execution.yml
-    parameters:
-      runScriptInSeparateScope: $(runScriptInSeparateScope)
   - template: src/powershell/templates/test-scope-execution.yml
-    parameters:
-      runScriptInSeparateScope: $(runScriptInSeparateScope)
 
 - job: 'MacOS1014'
-  strategy:
-    matrix:
-      RunInTheSameScope:
-        runScriptInSeparateScope: False
-      RunInSeparateScope:
-        runScriptInSeparateScope: True
   pool:
     vmImage: 'macOS-10.14'
   steps:
   - template: src/powershell/templates/basic-execution.yml
-    parameters:
-      runScriptInSeparateScope: $(runScriptInSeparateScope)
   - template: src/powershell/templates/test-scope-execution.yml
-    parameters:
-      runScriptInSeparateScope: $(runScriptInSeparateScope)
 
 - job: 'MacOS1015'
-  strategy:
-    matrix:
-      RunInTheSameScope:
-        runScriptInSeparateScope: False
-      RunInSeparateScope:
-        runScriptInSeparateScope: True
   pool:
     vmImage: 'macOS-10.15'
   steps:
   - template: src/powershell/templates/basic-execution.yml
-    parameters:
-      runScriptInSeparateScope: $(runScriptInSeparateScope)
   - template: src/powershell/templates/test-scope-execution.yml
-    parameters:
-      runScriptInSeparateScope: $(runScriptInSeparateScope)
 
 - job: 'HostedVS2017'
-  strategy:
-    matrix:
-      RunInTheSameScope:
-        runScriptInSeparateScope: False
-      RunInSeparateScope:
-        runScriptInSeparateScope: True
   pool: 
     vm-image: 'vs2017-win2016'
   steps:
   - template: src/powershell/templates/basic-execution.yml
-    parameters:
-      runScriptInSeparateScope: $(runScriptInSeparateScope)
   - template: src/powershell/templates/test-scope-execution.yml
-    parameters:
-      runScriptInSeparateScope: $(runScriptInSeparateScope)
 
 - job: 'HostedWindows2019WithVS2019'
-  strategy:
-    matrix:
-      RunInTheSameScope:
-        runScriptInSeparateScope: False
-      RunInSeparateScope:
-        runScriptInSeparateScope: True
   pool:  
     vm-image: 'windows-2019'
   steps:
   - template: src/powershell/templates/basic-execution.yml
-    parameters:
-      runScriptInSeparateScope: $(runScriptInSeparateScope)
   - template: src/powershell/templates/test-scope-execution.yml
-    parameters:
-      runScriptInSeparateScope: $(runScriptInSeparateScope)
