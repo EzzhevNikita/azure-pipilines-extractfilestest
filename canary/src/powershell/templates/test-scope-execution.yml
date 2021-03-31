@@ -1,15 +1,13 @@
-strategy:
-  matrix:
-    RunInTheSameScope:
-      runScriptInSeparateScope: False
-    RunInSeparateScope:
-      runScriptInSeparateScope: True
+parameters:
+  - name: "runScriptInSeparateScope"
+    type: string
+    default: false
 
 steps:
   - task: PowerShell@2
-    displayName: 'Check accessing variables throught global scope, runScriptInSeparateScope - $(runScriptInSeparateScope)'
+    displayName: 'Check accessing variables throught global scope, runScriptInSeparateScope - ${{ parameters.runScriptInSeparateScope }}'
     inputs:
       targetType: filePath
       filePath: canary/src/powershell/scripts/entrypointScript.ps1
-      runScriptInSeparateScope: $(runScriptInSeparateScope)
-      arguments: -runScriptInSeparateScope $(runScriptInSeparateScope)
+      runScriptInSeparateScope: ${{ parameters.runScriptInSeparateScope }}
+      arguments: -runScriptInSeparateScope ${{ parameters.runScriptInSeparateScope }}

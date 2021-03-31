@@ -5,6 +5,11 @@ jobs:
   steps:
   - template: src/powershell/templates/basic-execution.yml
   - template: src/powershell/templates/test-scope-execution.yml
+    parameters:
+      runScriptInSeparateScope: False
+  - template: src/powershell/templates/test-scope-execution.yml
+    parameters:
+      runScriptInSeparateScope: True
 
 - job: 'Ubuntu1804'
   pool:
@@ -12,6 +17,11 @@ jobs:
   steps:
   - template: src/powershell/templates/basic-execution.yml
   - template: src/powershell/templates/test-scope-execution.yml
+    parameters:
+      runScriptInSeparateScope: False
+  - template: src/powershell/templates/test-scope-execution.yml
+    parameters:
+      runScriptInSeparateScope: True
 
 - job: 'Ubuntu2004'
   pool:
@@ -19,13 +29,22 @@ jobs:
   steps:
   - template: src/powershell/templates/basic-execution.yml
   - template: src/powershell/templates/test-scope-execution.yml
-
+    parameters:
+      runScriptInSeparateScope: False
+  - template: src/powershell/templates/test-scope-execution.yml
+    parameters:
+      runScriptInSeparateScope: True
 - job: 'MacOS1014'
   pool:
     vmImage: 'macOS-10.14'
   steps:
   - template: src/powershell/templates/basic-execution.yml
   - template: src/powershell/templates/test-scope-execution.yml
+    parameters:
+      runScriptInSeparateScope: False
+  - template: src/powershell/templates/test-scope-execution.yml
+    parameters:
+      runScriptInSeparateScope: True
 
 - job: 'MacOS1015'
   pool:
@@ -33,6 +52,11 @@ jobs:
   steps:
   - template: src/powershell/templates/basic-execution.yml
   - template: src/powershell/templates/test-scope-execution.yml
+    parameters:
+      runScriptInSeparateScope: False
+  - template: src/powershell/templates/test-scope-execution.yml
+    parameters:
+      runScriptInSeparateScope: True
 
 - job: 'HostedVS2017'
   pool: 
@@ -40,6 +64,11 @@ jobs:
   steps:
   - template: src/powershell/templates/basic-execution.yml
   - template: src/powershell/templates/test-scope-execution.yml
+    parameters:
+      runScriptInSeparateScope: False
+  - template: src/powershell/templates/test-scope-execution.yml
+    parameters:
+      runScriptInSeparateScope: True
 
 - job: 'HostedWindows2019WithVS2019'
   pool:  
@@ -47,3 +76,8 @@ jobs:
   steps:
   - template: src/powershell/templates/basic-execution.yml
   - template: src/powershell/templates/test-scope-execution.yml
+    parameters:
+      runScriptInSeparateScope: False
+  - template: src/powershell/templates/test-scope-execution.yml
+    parameters:
+      runScriptInSeparateScope: True
