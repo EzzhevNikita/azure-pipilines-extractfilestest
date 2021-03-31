@@ -22,12 +22,12 @@ function MethodInOtherScript()  {
   { 
     if (Get-Variable Variable1 -Scope Global -ErrorAction SilentlyContinue)
     { Write-Error "Variable shouldn't exist in global scope" -ErrorAction Stop } else {
-      $false
+      Write-Output "Test passed, the variable is accessible from the global scope"
     }
   } else
   {
     if (Get-Variable Variable1 -Scope Global -ErrorAction SilentlyContinue)
-    { $true } else {
+    { Write-Output "Test passed, the variable is accessible from the global scope" } else {
       Write-Error "Variable doesn't exists in global scope" -ErrorAction Stop
     }
   }
