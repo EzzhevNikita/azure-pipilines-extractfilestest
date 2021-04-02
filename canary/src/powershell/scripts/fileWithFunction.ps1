@@ -29,11 +29,11 @@ function MethodInOtherScript()  {
   {
     if ( $runScriptInSeparateScope )
     {
-      Write-Error "Test passed, the variable isn't accessible from the global scope"
+      Write-Output "Test passed, the variable isn't accessible from the global scope"
     }
     else
     {
-      Write-Output "Variable doesn't exists in global scope" -ErrorAction Stop
+      Write-Error "Variable doesn't exists in global scope" -ErrorAction Stop
     }
   }
 }
