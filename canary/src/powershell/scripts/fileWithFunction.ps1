@@ -14,17 +14,26 @@ function MethodInOtherScript()  {
   }
 
   Write-Output "Call variables from Global scope"
-  if ( $runScriptInSeparateScope )
-  { 
-    if (Get-Variable Variable1 -Scope Global -ErrorAction SilentlyContinue)
-    { Write-Error "Variable shouldn't exist in global scope" -ErrorAction Stop } else {
-      Write-Output "Test passed, the variable isn't accessible from the global scope"
-    }
-  } else
+  if (Get-Variable Variable1 -Scope Global -ErrorAction SilentlyContinue)
   {
-    if (Get-Variable Variable1 -Scope Global -ErrorAction SilentlyContinue)
-    { Write-Output "Test passed, the variable is accessible from the global scope" } else {
-      Write-Error "Variable doesn't exists in global scope" -ErrorAction Stop
+    if ( $runScriptInSeparateScope )
+    {
+      Write-Error "Variable shouldn't exist in global scope" -ErrorAction Stop
+    }
+    else
+    {
+      Write-Output "Test passed, the variable is accessible from the global scope"
+    }
+  }
+  else
+  {
+    if ( $runScriptInSeparateScope )
+    {
+      Write-Error "Test passed, the variable isn't accessible from the global scope"
+    }
+    else
+    {
+      Write-Output "Variable doesn't exists in global scope" -ErrorAction Stop
     }
   }
 }
