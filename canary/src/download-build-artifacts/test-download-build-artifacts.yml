@@ -49,7 +49,7 @@ steps:
   displayName: 'Verify results'
   inputs:
     pwsh: true
-    filePath: './src/download-build-artifacts/validation_scripts/compare_folders.ps1'
+    filePath: './canary/src/download-build-artifacts/validation_scripts/compare_folders.ps1'
     arguments: '-folderReference "$(Build.SourcesDirectory)/GeneratedArtifacts/SourceFiles" -folderDifference "$(System.ArtifactsDirectory)/TestCases/1_OnlySourceFiles/Artifact_SourceFiles"'
 
 # Test case #2
@@ -67,7 +67,7 @@ steps:
   displayName: 'Verify results'
   inputs:
     pwsh: true
-    filePath: './src/download-build-artifacts/validation_scripts/compare_folders.ps1'
+    filePath: './canary/src/download-build-artifacts/validation_scripts/compare_folders.ps1'
     arguments: '-folderReference "$(Build.SourcesDirectory)/GeneratedArtifacts/HeaderFiles" -folderDifference "$(System.ArtifactsDirectory)/TestCases/2_OnlyHeaderFiles/Artifact_HeaderFiles"'
 
 # Test case #3
@@ -86,7 +86,7 @@ steps:
   displayName: 'Verify results'
   inputs:
     pwsh: true
-    filePath: './src/download-build-artifacts/validation_scripts/verify_files_extensions.ps1'
+    filePath: './canary/src/download-build-artifacts/validation_scripts/verify_files_extensions.ps1'
     arguments: '-pathToFolder "$(System.ArtifactsDirectory)/TestCases/3_OnlyCFiles" -whitelistedExtensions ".c"'
 
 # Test case #4
@@ -105,7 +105,7 @@ steps:
   displayName: 'Test Case 4 - Verify results'
   inputs:
     pwsh: true
-    filePath: './src/download-build-artifacts/validation_scripts/verify_files_extensions.ps1'
+    filePath: './canary/src/download-build-artifacts/validation_scripts/verify_files_extensions.ps1'
     arguments: '-pathToFolder "$(System.ArtifactsDirectory)/TestCases/4_OnlyHPPFiles" -whitelistedExtensions ".hpp"'
 
 # Test case #5
@@ -125,7 +125,7 @@ steps:
   displayName: 'Verify results'
   inputs:
     pwsh: true
-    filePath: './src/download-build-artifacts/validation_scripts/verify_files_extensions.ps1'
+    filePath: './canary/src/download-build-artifacts/validation_scripts/verify_files_extensions.ps1'
     arguments: '-pathToFolder "$(System.ArtifactsDirectory)/TestCases/5_CppFiles" -whitelistedExtensions ".cpp",".hpp"'
 
 # Test case #6
@@ -145,7 +145,7 @@ steps:
   displayName: 'Verify results'
   inputs:
     pwsh: true
-    filePath: './src/download-build-artifacts/validation_scripts/verify_files_extensions.ps1'
+    filePath: './canary/src/download-build-artifacts/validation_scripts/verify_files_extensions.ps1'
     arguments: '-pathToFolder "$(System.ArtifactsDirectory)/TestCases/6_CFiles" -whitelistedExtensions ".c",".h"'
 
 # Test case #7
@@ -163,5 +163,5 @@ steps:
   displayName: 'Verify results'
   inputs:
     pwsh: true
-    filePath: './src/download-build-artifacts/validation_scripts/compare_folders.ps1'
+    filePath: './canary/src/download-build-artifacts/validation_scripts/compare_folders.ps1'
     arguments: '-folderReference "$(Build.SourcesDirectory)/GeneratedArtifacts/" -folderDifference "$(System.ArtifactsDirectory)/TestCases/7_AllFiles/"'
