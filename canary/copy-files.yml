@@ -21,7 +21,7 @@ jobs:
       - template: src/copy-files/templates/copy-files-steps.yml
 
   - job: 'HostedVS2017'
-    displayName: Test CopyFilesV2 on Windows 2019
+    displayName: Test CopyFilesV2 on Windows 2017
     pool: 
       vm-image: 'vs2017-win2016'
     steps:
