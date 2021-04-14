@@ -85,7 +85,7 @@ steps:
       overWrite: false
       flattenFolders: true
   
-  - task: CopyFiles@2
+  - task: CopyFiles@2.184.0
     displayName: 'Copy one file from source root with preserveTimestamp'
     inputs:
       SourceFolder: 'canary/src/copy-files/source'
