@@ -1,18 +1,46 @@
 jobs:
+  - job: 'copyFiles_ubuntu1604'
+    displayName: Test CopyFilesV2 on Ubuntu 1604
+    pool:
+      vmImage: 'ubuntu-16.04'
+    steps:
+      - template: src/copy-files/templates/copy-files-steps.yml
+
   - job: 'copyFiles_ubuntu1804'
     displayName: Test CopyFilesV2 on Ubuntu 1804
     pool:
       vmImage: 'ubuntu-18.04'
     steps:
       - template: src/copy-files/templates/copy-files-steps.yml
-  
+
+  - job: 'copyFiles_ubuntu2004'
+    displayName: Test CopyFilesV2 on Ubuntu 2004
+    pool:
+      vmImage: 'ubuntu-20.04'
+    steps:
+      - template: src/copy-files/templates/copy-files-steps.yml
+
+  - job: 'HostedVS2017'
+    displayName: Test CopyFilesV2 on Windows 2019
+    pool: 
+      vm-image: 'vs2017-win2016'
+    steps:
+      - template: src/copy-files/templates/copy-files-steps.yml
+
   - job: 'copyFiles_Wndows2019WithVS2019'
     displayName: Test CopyFilesV2 on Windows 2019
     pool:
       vmImage: 'windows-2019'
     steps:
       - template: src/copy-files/templates/copy-files-steps.yml
-  
+
+  - job: 'MacOS1014'
+    displayName: Test CopyFilesV2 on MacOS Catalina
+    pool:
+      vmImage: 'macOS-10.14'
+    steps:
+      - template: src/copy-files/templates/copy-files-steps.yml
+
   - job: 'copyFiles_MacOSPublicCatalina'
     displayName: Test CopyFilesV2 on MacOS Catalina
     pool:
