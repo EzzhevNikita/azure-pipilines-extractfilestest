@@ -1,0 +1,21 @@
+stages:
+- stage: 'VS2017'
+  dependsOn: []
+  jobs:
+  - template: src/javaToolInstaller/templates/java-tool-installer-jobs-template-jdk7.yml
+    parameters:
+      pool: vs2017-win2016
+
+- stage: 'VS2019'
+  dependsOn: []
+  jobs:
+  - template: src/javaToolInstaller/templates/java-tool-installer-jobs-template-jdk7.yml
+    parameters:
+      pool: windows-latest
+
+- stage: 'ubuntu1804'
+  dependsOn: []
+  jobs:
+  - template: src/javaToolInstaller/templates/java-tool-installer-jobs-template-jdk7.yml
+    parameters:
+      pool: ubuntu-latest
