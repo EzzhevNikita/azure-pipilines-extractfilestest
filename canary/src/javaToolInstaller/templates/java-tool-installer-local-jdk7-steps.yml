@@ -3,7 +3,7 @@
     displayName: Create Source Folder
     inputs:
       targetType: 'inline'
-      script: 'mkdir -p ./src/javaToolInstaller/JDK'
+      script: 'mkdir -p ./canary/src/javaToolInstaller/JDK'
       workingDirectory: '$(build.sourcesdirectory)'
 
   - pwsh: |
@@ -16,7 +16,7 @@
     displayName: 'Set JDK archive name and extension'
 
   - bash: |
-      cd "$(build.sourcesdirectory)/src/javaToolInstaller/JDK"
+      cd "$(build.sourcesdirectory)/canary/src/javaToolInstaller/JDK"
       curl https://repos.azul.com/azure-only/zulu/packages/zulu-7/7u191/$(archiveName) --output ./JDK7.$(archiveExtension) --retry 5 --retry-max-time 0
     displayName: 'Downloading JDK archive'
 
@@ -26,7 +26,7 @@
       versionSpec: 7
       jdkArchitectureOption: x64
       jdkSourceOption: LocalDirectory
-      jdkFile: './src/javaToolInstaller/JDK/JDK7.$(archiveExtension)'
+      jdkFile: './canary/src/javaToolInstaller/JDK/JDK7.$(archiveExtension)'
       jdkDestinationDirectory: tempDir/
       cleanDestinationDirectory: false
       createExtractDirectory: true
@@ -37,7 +37,7 @@
       versionSpec: 7
       jdkArchitectureOption: x64
       jdkSourceOption: LocalDirectory
-      jdkFile: './src/javaToolInstaller/JDK/JDK7.$(archiveExtension)'
+      jdkFile: './canary/src/javaToolInstaller/JDK/JDK7.$(archiveExtension)'
       jdkDestinationDirectory: tempDir/
       cleanDestinationDirectory: true
       createExtractDirectory: true
@@ -48,7 +48,7 @@
       versionSpec: 7
       jdkArchitectureOption: x64
       jdkSourceOption: LocalDirectory
-      jdkFile: './src/javaToolInstaller/JDK/JDK7.$(archiveExtension)'
+      jdkFile: './canary/src/javaToolInstaller/JDK/JDK7.$(archiveExtension)'
       jdkDestinationDirectory: tempDir/
       cleanDestinationDirectory: true
       createExtractDirectory: true
@@ -59,7 +59,7 @@
       versionSpec: 7
       jdkArchitectureOption: x64
       jdkSourceOption: LocalDirectory
-      jdkFile: './src/javaToolInstaller/JDK/JDK7.$(archiveExtension)'
+      jdkFile: './canary/src/javaToolInstaller/JDK/JDK7.$(archiveExtension)'
       jdkDestinationDirectory: tempDir/
       cleanDestinationDirectory: false
       createExtractDirectory: true
@@ -70,7 +70,7 @@
       versionSpec: 7
       jdkArchitectureOption: x64
       jdkSourceOption: LocalDirectory
-      jdkFile: './src/javaToolInstaller/JDK/JDK7.$(archiveExtension)'
+      jdkFile: './canary/src/javaToolInstaller/JDK/JDK7.$(archiveExtension)'
       jdkDestinationDirectory: tempDir/
       cleanDestinationDirectory: false
       createExtractDirectory: true
@@ -78,14 +78,14 @@
   - task: Maven@3
     displayName: 'Maven JavaTestProject/pom.xml'
     inputs:
-      mavenPomFile: '$(build.sourcesdirectory)/src/javaToolInstaller/JavaTestProject/pom.xml'
+      mavenPomFile: '$(build.sourcesdirectory)/canary/src/javaToolInstaller/JavaTestProject/pom.xml'
       javaHomeOption: Path
       jdkDirectory: '$(JAVA_HOME)'
 
   - task: CopyFiles@2
     displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
     inputs:
-      SourceFolder: '$(build.sourcesdirectory)/src/javaToolInstaller'
+      SourceFolder: '$(build.sourcesdirectory)/canary/src/javaToolInstaller'
       Contents: '**/*.jar'
       TargetFolder: '$(build.artifactstagingdirectory)'
 

@@ -1,11 +1,32 @@
   steps:
+  - task: Bash@3
+    displayName: Create Source Folder
+    inputs:
+      targetType: 'inline'
+      script: 'mkdir -p ./src/javaToolInstaller/JDK'
+      workingDirectory: '$(build.sourcesdirectory)'
+
+  - pwsh: |
+      $platform = If ($IsLinux) { "linux" } else { "win" }
+      $extension = If ($IsLinux) { "tar.gz" } else { "zip" }
+      $version = "7.24.0.2-7.0.191"
+      $archiveName = "zulu-7-azure-jdk_${version}-${platform}_x64.${extension}"
+      Write-Host "##vso[task.setvariable variable=archiveName]$archiveName"
+      Write-Host "##vso[task.setvariable variable=archiveExtension]$extension"
+    displayName: 'Set JDK archive name and extension'
+
+  - bash: |
+      cd "$(build.sourcesdirectory)/src/javaToolInstaller/JDK"
+      curl https://repos.azul.com/azure-only/zulu/packages/zulu-7/7u191/$(archiveName) --output ./JDK7.$(archiveExtension) --retry 5 --retry-max-time 0
+    displayName: 'Downloading JDK archive'
+
   - task: JavaToolInstaller@0
     displayName: 'Unpack Java, inactive Cleaning'
     inputs:
       versionSpec: 16
       jdkArchitectureOption: x64
       jdkSourceOption: LocalDirectory
-      jdkFile: 'C:\Users\nikita.ezzhev\Downloads\zulu16.30.15-ca-jdk16.0.1-win_x64.zip'
+      jdkFile: './canary/src/javaToolInstaller/JDK/JDK7.$(archiveExtension)'
       jdkDestinationDirectory: tempDir/
       cleanDestinationDirectory: false
       createExtractDirectory: true
@@ -57,7 +78,7 @@
   - task: Maven@3
     displayName: 'Maven JavaTestProject/pom.xml'
     inputs:
-      mavenPomFile: '$(build.sourcesdirectory)/src/javaToolInstaller/JavaTestProject/pom.xml'
+      mavenPomFile: '$(build.sourcesdirectory)/canary/src/javaToolInstaller/JavaTestProject/pom.xml'
       javaHomeOption: Path
       jdkDirectory: '$(JAVA_HOME)'
 
