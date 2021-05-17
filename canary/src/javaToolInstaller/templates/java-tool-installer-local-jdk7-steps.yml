@@ -27,7 +27,7 @@
       jdkArchitectureOption: x64
       jdkSourceOption: LocalDirectory
       jdkFile: './canary/src/javaToolInstaller/JDK/JDK7.$(archiveExtension)'
-      jdkDestinationDirectory: tempDir
+      jdkDestinationDirectory: tempDir/
       cleanDestinationDirectory: false
       createExtractDirectory: false
 
@@ -38,7 +38,7 @@
       jdkArchitectureOption: x64
       jdkSourceOption: LocalDirectory
       jdkFile: './canary/src/javaToolInstaller/JDK/JDK7.$(archiveExtension)'
-      jdkDestinationDirectory: tempDir
+      jdkDestinationDirectory: tempDir/
       cleanDestinationDirectory: true
       createExtractDirectory: false
 
@@ -49,7 +49,7 @@
       jdkArchitectureOption: x64
       jdkSourceOption: LocalDirectory
       jdkFile: './canary/src/javaToolInstaller/JDK/JDK7.$(archiveExtension)'
-      jdkDestinationDirectory: tempDir
+      jdkDestinationDirectory: tempDir/
       cleanDestinationDirectory: true
       createExtractDirectory: false
 
@@ -60,7 +60,7 @@
       jdkArchitectureOption: x64
       jdkSourceOption: LocalDirectory
       jdkFile: './canary/src/javaToolInstaller/JDK/JDK7.$(archiveExtension)'
-      jdkDestinationDirectory: tempDir
+      jdkDestinationDirectory: tempDir/
       cleanDestinationDirectory: false
       createExtractDirectory: false
 
@@ -71,7 +71,7 @@
       jdkArchitectureOption: x64
       jdkSourceOption: LocalDirectory
       jdkFile: './canary/src/javaToolInstaller/JDK/JDK7.$(archiveExtension)'
-      jdkDestinationDirectory: tempDir
+      jdkDestinationDirectory: tempDir/
       cleanDestinationDirectory: false
       createExtractDirectory: false
 
