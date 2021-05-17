@@ -13,6 +13,13 @@ stages:
     parameters:
       pool: windows-latest
 
+- stage: 'Self_hosted'
+  dependsOn: []
+  jobs:
+  - template: src/javaToolInstaller/templates/java-tool-installer-jobs-template-jdk7-self.yml
+    parameters:
+      pool: windows-latest
+
 - stage: 'ubuntu1804'
   dependsOn: []
   jobs:
