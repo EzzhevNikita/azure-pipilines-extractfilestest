@@ -8,7 +8,7 @@
       jdkFile: 'C:\Users\nikita.ezzhev\Downloads\zulu16.30.15-ca-jdk16.0.1-win_x64.zip'
       jdkDestinationDirectory: tempDir/
       cleanDestinationDirectory: false
-      createExtractDirectory: false
+      createExtractDirectory: true
 
   - task: JavaToolInstaller@0
     displayName: 'Unpack Java, active Cleaning'
@@ -19,7 +19,7 @@
       jdkFile: 'C:\Users\nikita.ezzhev\Downloads\zulu16.30.15-ca-jdk16.0.1-win_x64.zip'
       jdkDestinationDirectory: tempDir/
       cleanDestinationDirectory: true
-      createExtractDirectory: false
+      createExtractDirectory: true
 
   - task: JavaToolInstaller@0
     displayName: 'Unpack Java, active Cleaning'
@@ -30,7 +30,7 @@
       jdkFile: 'C:\Users\nikita.ezzhev\Downloads\zulu16.30.15-ca-jdk16.0.1-win_x64.zip'
       jdkDestinationDirectory: tempDir/
       cleanDestinationDirectory: true
-      createExtractDirectory: false
+      createExtractDirectory: true
 
   - task: JavaToolInstaller@0
     displayName: 'Unpack Java, inactive Cleaning'
@@ -41,7 +41,7 @@
       jdkFile: 'C:\Users\nikita.ezzhev\Downloads\zulu16.30.15-ca-jdk16.0.1-win_x64.zip'
       jdkDestinationDirectory: tempDir/
       cleanDestinationDirectory: false
-      createExtractDirectory: false
+      createExtractDirectory: true
 
   - task: JavaToolInstaller@0
     displayName: 'Unpack Java, inactive Cleaning'
@@ -52,7 +52,7 @@
       jdkFile: 'C:\Users\nikita.ezzhev\Downloads\zulu16.30.15-ca-jdk16.0.1-win_x64.zip'
       jdkDestinationDirectory: tempDir/
       cleanDestinationDirectory: false
-      createExtractDirectory: false
+      createExtractDirectory: true
 
   - task: Maven@3
     displayName: 'Maven JavaTestProject/pom.xml'
