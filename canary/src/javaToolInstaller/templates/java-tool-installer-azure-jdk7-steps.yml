@@ -19,6 +19,7 @@
       azureContainerName: 'ektata-container'
       azureCommonVirtualFile: $(archiveName)
       jdkDestinationDirectory: ./tempAzure
+      createExtractDirectory: false
 
   - task: Maven@1
     displayName: 'Maven JavaTestProject/pom.xml'
