@@ -8,6 +8,7 @@ jobs:
   - template: 'java-tool-installer-local-jdk7-steps.yml'
 
 - job: 'Azure_JDK'
-  pool: ${{ parameters.pool }}
+  pool:
+    vmImage: ${{ parameters.pool }}
   steps:
   - template: 'java-tool-installer-azure-jdk7-steps.yml'
