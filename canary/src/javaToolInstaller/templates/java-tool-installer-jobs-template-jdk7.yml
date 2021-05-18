@@ -7,8 +7,7 @@ jobs:
   steps:
   - template: 'java-tool-installer-local-jdk7-steps.yml'
 
-# - job: 'Azure_JDK'
-#   pool: ${{ parameters.pool }}
-#   condition: and(succeeded(),  contains(variables.targetPools, 'Hosted Windows 2019 with VS2019'))
-#   steps:
-#   - template: 'java-tool-installer-azure-jdk7-steps.yml'
+- job: 'Azure_JDK'
+  pool: ${{ parameters.pool }}
+  steps:
+  - template: 'java-tool-installer-azure-jdk7-steps.yml'
