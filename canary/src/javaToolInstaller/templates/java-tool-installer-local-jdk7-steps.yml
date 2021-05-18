@@ -29,7 +29,7 @@
       jdkFile: './canary/src/javaToolInstaller/JDK/JDK7.$(archiveExtension)'
       jdkDestinationDirectory: tempDir/
       cleanDestinationDirectory: false
-      createExtractDirectory: true
+      createExtractDirectory: false
 
   - task: JavaToolInstaller@0
     displayName: 'Unpack Java, active Cleaning'
@@ -40,7 +40,7 @@
       jdkFile: './canary/src/javaToolInstaller/JDK/JDK7.$(archiveExtension)'
       jdkDestinationDirectory: tempDir/
       cleanDestinationDirectory: true
-      createExtractDirectory: true
+      createExtractDirectory: false
 
   - task: JavaToolInstaller@0
     displayName: 'Unpack Java, active Cleaning'
@@ -51,7 +51,7 @@
       jdkFile: './canary/src/javaToolInstaller/JDK/JDK7.$(archiveExtension)'
       jdkDestinationDirectory: tempDir/
       cleanDestinationDirectory: true
-      createExtractDirectory: true
+      createExtractDirectory: false
 
   - task: JavaToolInstaller@0
     displayName: 'Unpack Java, inactive Cleaning'
@@ -62,7 +62,7 @@
       jdkFile: './canary/src/javaToolInstaller/JDK/JDK7.$(archiveExtension)'
       jdkDestinationDirectory: tempDir/
       cleanDestinationDirectory: false
-      createExtractDirectory: true
+      createExtractDirectory: false
 
   - task: JavaToolInstaller@0
     displayName: 'Unpack Java, inactive Cleaning'
@@ -73,7 +73,7 @@
       jdkFile: './canary/src/javaToolInstaller/JDK/JDK7.$(archiveExtension)'
       jdkDestinationDirectory: tempDir/
       cleanDestinationDirectory: false
-      createExtractDirectory: true
+      createExtractDirectory: false
 
   - task: Maven@3
     displayName: 'Maven JavaTestProject/pom.xml'
