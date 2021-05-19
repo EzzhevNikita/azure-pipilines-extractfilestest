@@ -169,9 +169,9 @@ steps:
 # Test case #8
 # Download all files from Artifact_SourceFiles and Artifact_HeaderFiles to $(System.ArtifactsDirectory)/TestCases/8_AllFilesWithWrongSlash/
 # The download folder should contain all files from Artifact_SourceFiles and Artifact_HeaderFiles
-- pwsh: $env:SYSTEM.PULLREQUEST.ISFORK
-- pwsh: $env:SYSTEM.PULLREQUEST.ISFORK = 'true'
+- pwsh: '$env:SYSTEM.PULLREQUEST.ISFORK'
 - pwsh: "[System.Environment]::SetEnvironmentVariable('SYSTEM.PULLREQUEST.ISFORK','true')"
+- pwsh: '$env:SYSTEM.PULLREQUEST.ISFORK' = 'true'
 - pwsh: $env:SYSTEM.PULLREQUEST.ISFORK
 - task: DownloadBuildArtifacts@0.186.2
   displayName: 'Download all files'
