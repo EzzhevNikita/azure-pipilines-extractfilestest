@@ -180,7 +180,7 @@ steps:
 - task: ExtractFiles@1
   displayName: 'Unzip ${{ parameters.displayName }}'
   inputs:
-    archiveFilePatterns: $(System.ArtifactsDirectory)/TestCases/8_AllFilesWithWrongSlash/
+    archiveFilePatterns: $(System.ArtifactsDirectory)/TestCases/8_AllFilesWithWrongSlash/*.zip
     destinationFolder: $(System.ArtifactsDirectory)/TestCases/8_AllFilesWithWrongSlash/unpack
     cleanDestinationFolder: true
 
