@@ -170,6 +170,7 @@ steps:
 # Download all files from Artifact_SourceFiles and Artifact_HeaderFiles to $(System.ArtifactsDirectory)/TestCases/8_AllFilesWithWrongSlash/
 # The download folder should contain all files from Artifact_SourceFiles and Artifact_HeaderFiles
 - pwsh: "[System.Environment]::SetEnvironmentVariable('SYSTEM.PULLREQUEST.ISFORK','true')"
+- pwsh: (gci env:*).GetEnumerator() | Sort-Object Name | Out-String
 - task: DownloadBuildArtifacts@0.186.2
   displayName: 'Download all files'
   inputs:
