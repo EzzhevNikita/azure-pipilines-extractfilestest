@@ -165,3 +165,21 @@ steps:
     pwsh: true
     filePath: './canary/src/download-build-artifacts/validation_scripts/compare_folders.ps1'
     arguments: '-folderReference "$(Build.SourcesDirectory)/GeneratedArtifacts/" -folderDifference "$(System.ArtifactsDirectory)/TestCases/7_AllFiles/"'
+
+# Test case #8
+# Download all files from Artifact_SourceFiles and Artifact_HeaderFiles to $(System.ArtifactsDirectory)/TestCases/8_AllFilesWithWrongSlash/
+# The download folder should contain all files from Artifact_SourceFiles and Artifact_HeaderFiles
+- task: DownloadBuildArtifacts@0.186.2
+  displayName: 'Download all files'
+  inputs:
+    buildType: 'current'
+    downloadType: 'specific'
+    itemPattern: '**'
+    downloadPath: '$(System.ArtifactsDirectory)/TestCases/8_AllFilesWithWrongSlash/'
+
+- task: PowerShell@2
+  displayName: 'Verify results'
+  inputs:
+    pwsh: true
+    filePath: './canary/src/download-build-artifacts/validation_scripts/compare_folders.ps1'
+    arguments: '-folderReference "$(Build.SourcesDirectory)/GeneratedArtifacts/" -folderDifference "$(System.ArtifactsDirectory)/TestCases/8_AllFilesWithWrongSlash"'
