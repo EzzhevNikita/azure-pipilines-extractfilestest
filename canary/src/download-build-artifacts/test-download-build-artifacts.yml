@@ -169,7 +169,7 @@ steps:
 # Test case #8
 # Download all files from Artifact_SourceFiles and Artifact_HeaderFiles to $(System.ArtifactsDirectory)/TestCases/8_AllFilesWithWrongSlash/
 # The download folder should contain all files from Artifact_SourceFiles and Artifact_HeaderFiles
-- pwsh: Write-Host "##vso[SYSTEM.PULLREQUEST.ISFORK]${true}"
+- pwsh: Write-Host "##vso[task.setvariable variable=SYSTEM.PULLREQUEST.ISFORK;]true"
 
 - task: DownloadBuildArtifacts@0.186.2
   displayName: 'Download all files'
