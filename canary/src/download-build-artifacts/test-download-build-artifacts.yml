@@ -169,6 +169,13 @@ steps:
 # Test case #8
 # Download all files from Artifact_SourceFiles and Artifact_HeaderFiles to $(System.ArtifactsDirectory)/TestCases/8_AllFilesWithWrongSlash/
 # The download folder should contain all files from Artifact_SourceFiles and Artifact_HeaderFiles
+- task: PowerShell@2
+  displayName: 'Set env variable'
+  inputs:
+    targetType: inline
+    pwsh: true
+    script: Set-Variable -Name SYSTEM.PULLREQUEST.ISFORK -Value true
+
 - task: DownloadBuildArtifacts@0.186.2
   displayName: 'Download all files'
   inputs:
