@@ -178,13 +178,6 @@ steps:
     itemPattern: '**'
     downloadPath: '$(System.ArtifactsDirectory)/TestCases/8_AllFilesWithWrongSlash/'
 
-- task: ExtractFiles@1
-  displayName: 'Unzip ${{ parameters.displayName }}'
-  inputs:
-    archiveFilePatterns: $(System.ArtifactsDirectory)/TestCases/8_AllFilesWithWrongSlash/*.zip
-    destinationFolder: $(System.ArtifactsDirectory)/TestCases/8_AllFilesWithWrongSlash/unpack
-    cleanDestinationFolder: true
-
 - task: PowerShell@2
   displayName: 'Verify results'
   inputs:
