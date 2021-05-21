@@ -22,12 +22,14 @@ jobs:
     vmImage: 'windows-2019'
   steps:
   - template: src/download-build-artifacts/test-download-build-artifacts.yml
+  - template: src/download-build-artifacts/test-download-build-artifacts-zip.yml
 
 - job: 'VS2017_WIN2016'
   pool:
     vmImage: 'vs2017-win2016'
   steps:
   - template: src/download-build-artifacts/test-download-build-artifacts.yml
+  - template: src/download-build-artifacts/test-download-build-artifacts-zip.yml
 
 - job: 'MacOS_Public_Catalina'
   pool:
