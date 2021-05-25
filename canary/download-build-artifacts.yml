@@ -3,7 +3,7 @@ jobs:
   pool:
     name: 'Default'
     demands:
-    - agent.os -equels Linux
+    - agent.os -equals Linux
   steps:
   - template: src/download-build-artifacts/generate-test-artifacts.yml
   - template: src/download-build-artifacts/test-download-build-artifacts.yml
@@ -12,7 +12,7 @@ jobs:
   pool:
     name: 'Default'
     demands:
-    - agent.os -equels Darwin
+    - agent.os -equals Darwin
   steps:
   - template: src/download-build-artifacts/generate-test-artifacts.yml
   - template: src/download-build-artifacts/test-download-build-artifacts.yml
@@ -21,7 +21,7 @@ jobs:
   pool:
     name: 'Default'
     demands:
-    - agent.os -equels Windows_NT
+    - agent.os -equals Windows_NT
   steps:
   - template: src/download-build-artifacts/generate-test-artifacts.yml
   - template: src/download-build-artifacts/test-download-build-artifacts.yml
