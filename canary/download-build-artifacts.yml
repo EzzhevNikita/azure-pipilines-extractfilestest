@@ -1,51 +1,79 @@
 jobs:
-- job: 'Ubuntu_2004'
+- job: 'ubuntu-self'
   pool:
-    vmImage: 'ubuntu-20.04'
+    name: 'Default'
+    demands:
+    - agent.os -equels Linux
   steps:
   - template: src/download-build-artifacts/generate-test-artifacts.yml
   - template: src/download-build-artifacts/test-download-build-artifacts.yml
 
-- job: 'Ubuntu_1604'
+- job: 'macOS-self'
   pool:
-    vmImage: 'ubuntu-16.04'
+    name: 'Default'
+    demands:
+    - agent.os -equels Darwin
   steps:
   - template: src/download-build-artifacts/generate-test-artifacts.yml
   - template: src/download-build-artifacts/test-download-build-artifacts.yml
 
-- job: 'Ubuntu_1804'
+- job: 'win-self'
   pool:
-    vmImage: 'ubuntu-18.04'
-  steps:
-  - template: src/download-build-artifacts/generate-test-artifacts.yml
-  - template: src/download-build-artifacts/test-download-build-artifacts.yml
-
-- job: 'VS2019'
-  pool:
-    vmImage: 'windows-2019'
+    name: 'Default'
+    demands:
+    - agent.os -equels Windows_NT
   steps:
   - template: src/download-build-artifacts/generate-test-artifacts.yml
   - template: src/download-build-artifacts/test-download-build-artifacts.yml
   - template: src/download-build-artifacts/test-download-build-artifacts-zip.yml
 
-- job: 'VS2017_WIN2016'
-  pool:
-    vmImage: 'vs2017-win2016'
-  steps:
-  - template: src/download-build-artifacts/generate-test-artifacts.yml
-  - template: src/download-build-artifacts/test-download-build-artifacts.yml
-  - template: src/download-build-artifacts/test-download-build-artifacts-zip.yml
+# - job: 'Ubuntu_2004'
+#   pool:
+#     vmImage: 'ubuntu-20.04'
+#   steps:
+#   - template: src/download-build-artifacts/generate-test-artifacts.yml
+#   - template: src/download-build-artifacts/test-download-build-artifacts.yml
 
-- job: 'MacOS_Public_Catalina'
-  pool:
-    vmImage: 'macos-10.15'
-  steps:
-  - template: src/download-build-artifacts/generate-test-artifacts.yml
-  - template: src/download-build-artifacts/test-download-build-artifacts.yml
+# - job: 'Ubuntu_1604'
+#   pool:
+#     vmImage: 'ubuntu-16.04'
+#   steps:
+#   - template: src/download-build-artifacts/generate-test-artifacts.yml
+#   - template: src/download-build-artifacts/test-download-build-artifacts.yml
 
-- job: 'MacOS1014'
-  pool:
-    vmImage: 'macOS-10.14'
-  steps:
-  - template: src/download-build-artifacts/generate-test-artifacts.yml
-  - template: src/download-build-artifacts/test-download-build-artifacts.yml
+# - job: 'Ubuntu_1804'
+#   pool:
+#     vmImage: 'ubuntu-18.04'
+#   steps:
+#   - template: src/download-build-artifacts/generate-test-artifacts.yml
+#   - template: src/download-build-artifacts/test-download-build-artifacts.yml
+
+# - job: 'VS2019'
+#   pool:
+#     vmImage: 'windows-2019'
+#   steps:
+#   - template: src/download-build-artifacts/generate-test-artifacts.yml
+#   - template: src/download-build-artifacts/test-download-build-artifacts.yml
+#   - template: src/download-build-artifacts/test-download-build-artifacts-zip.yml
+
+# - job: 'VS2017_WIN2016'
+#   pool:
+#     vmImage: 'vs2017-win2016'
+#   steps:
+#   - template: src/download-build-artifacts/generate-test-artifacts.yml
+#   - template: src/download-build-artifacts/test-download-build-artifacts.yml
+#   - template: src/download-build-artifacts/test-download-build-artifacts-zip.yml
+
+# - job: 'MacOS_Public_Catalina'
+#   pool:
+#     vmImage: 'macos-10.15'
+#   steps:
+#   - template: src/download-build-artifacts/generate-test-artifacts.yml
+#   - template: src/download-build-artifacts/test-download-build-artifacts.yml
+
+# - job: 'MacOS1014'
+#   pool:
+#     vmImage: 'macOS-10.14'
+#   steps:
+#   - template: src/download-build-artifacts/generate-test-artifacts.yml
+#   - template: src/download-build-artifacts/test-download-build-artifacts.yml
