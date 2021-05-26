@@ -44,7 +44,7 @@ steps:
     buildType: 'current'
     downloadType: 'single'
     artifactName: 'Artifact_SourceFiles'
-    itemPattern: 'Artifact_SourceFiles/*.c'
+    itemPattern: 'Artifact_SourceFiles/*.txt'
     downloadPath: '$(System.ArtifactsDirectory)/TestCases/3_OnlyCFiles/'
 
 - task: PowerShell@2
