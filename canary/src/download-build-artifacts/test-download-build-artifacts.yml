@@ -45,7 +45,14 @@ steps:
     downloadType: 'single'
     artifactName: 'Artifact_SourceFiles'
     itemPattern: 'Artifact_SourceFiles/*.txt'
-    downloadPath: '$(System.ArtifactsDirectory)/TestCases/3_OnlyCFiles/'
+    downloadPath: '$(System.ArtifactsDirectory)/TestCases/3_OnlyCFilesGGGG/'
+
+- task: PowerShell@2
+  displayName: 'Verify results'
+  inputs:
+    pwsh: true
+    filePath: './canary/src/download-build-artifacts/validation_scripts/verify_files_extensions.ps1'
+    arguments: '-pathToFolder "$(System.ArtifactsDirectory)/TestCases/3_OnlyCFilesgggg" -whitelistedExtensions ".c"'
 
 # Test case #3
 # Download all *.c files from Artifact_SourceFiles to $(System.ArtifactsDirectory)/TestCases/3_OnlyCFiles/
@@ -57,14 +64,14 @@ steps:
     downloadType: 'single'
     artifactName: 'Artifact_SourceFiles'
     itemPattern: 'Artifact_SourceFiles/*.txt'
-    downloadPath: '$(System.ArtifactsDirectory)/TestCases/3_OnlyCFiles_zero/'
+    downloadPath: '$(System.ArtifactsDirectory)/TestCases/3_OnlyCFiles_zeroGGGG/'
 
 - task: PowerShell@2
   displayName: 'Verify results'
   inputs:
     pwsh: true
     filePath: './canary/src/download-build-artifacts/validation_scripts/verify_files_extensions.ps1'
-    arguments: '-pathToFolder "$(System.ArtifactsDirectory)/TestCases/3_OnlyCFiles" -whitelistedExtensions ".c"'
+    arguments: '-pathToFolder "$(System.ArtifactsDirectory)/TestCases/3_OnlyCFiles_zerogggg" -whitelistedExtensions ".c"'
 
 # Test case #4
 # Download all *.hpp files from Artifact_HeaderFiles to $(System.ArtifactsDirectory)/TestCases/4_OnlyHPPFiles/
