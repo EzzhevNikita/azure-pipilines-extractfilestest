@@ -47,6 +47,18 @@ steps:
     itemPattern: 'Artifact_SourceFiles/*.txt'
     downloadPath: '$(System.ArtifactsDirectory)/TestCases/3_OnlyCFiles/'
 
+# Test case #3
+# Download all *.c files from Artifact_SourceFiles to $(System.ArtifactsDirectory)/TestCases/3_OnlyCFiles/
+# The download folder should contain only *.c files
+- task: DownloadBuildArtifacts@0
+  displayName: 'Download only *.c files'
+  inputs:
+    buildType: 'current'
+    downloadType: 'single'
+    artifactName: 'Artifact_SourceFiles'
+    itemPattern: 'Artifact_SourceFiles/*.txt'
+    downloadPath: '$(System.ArtifactsDirectory)/TestCases/3_OnlyCFiles_zero/'
+
 - task: PowerShell@2
   displayName: 'Verify results'
   inputs:
