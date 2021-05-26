@@ -44,7 +44,7 @@ steps:
     buildType: 'current'
     downloadType: 'single'
     artifactName: 'Artifact_SourceFiles'
-    itemPattern: 'Artifact_SourceFiles/*.c'
+    itemPattern: 'Artifact_SourceFileS/*.c'
     downloadPath: '$(System.ArtifactsDirectory)/TestCases/3_OnlyCFilesGGGG/'
 
 - task: PowerShell@2
@@ -63,7 +63,7 @@ steps:
     buildType: 'current'
     downloadType: 'single'
     artifactName: 'Artifact_SourceFiles'
-    itemPattern: 'Artifact_SourceFiles/*.c'
+    itemPattern: 'Artifact_SourceFileS/*.c'
     downloadPath: '$(System.ArtifactsDirectory)/TestCases/3_OnlyCFiles_zeroGGGG/'
 
 - task: PowerShell@2
