@@ -19,7 +19,7 @@
       azureContainerName: 'ektata-container'
       azureCommonVirtualFile: $(archiveName)
       jdkDestinationDirectory: ./tempAzure
-      cleanDestinationDirectory: true
+      cleanDestinationDirectory: false
       createExtractDirectory: false
 
   - task: Maven@1
