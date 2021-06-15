@@ -2,7 +2,7 @@ steps:
 # Download all files from Artifact_SourceFiles and Artifact_HeaderFiles to $(System.ArtifactsDirectory)/TestCases/8_AllFilesInZipArchive/
 # The download folder should contain all files from Artifact_SourceFiles and Artifact_HeaderFiles
 - pwsh: echo "##vso[task.setvariable variable=DownloadBuildArtifacts.ForceEnableDownloadZipForCanary]True"
-- task: DownloadBuildArtifacts@0
+- task: DownloadBuildArtifacts@1
   displayName: 'Download all files as zip'
   inputs:
     buildType: 'current'
