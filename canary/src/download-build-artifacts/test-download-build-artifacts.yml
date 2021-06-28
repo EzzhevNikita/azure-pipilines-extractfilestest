@@ -138,8 +138,8 @@ steps:
     buildType: 'current'
     downloadType: 'specific'
     itemPattern: |
-      Artifact_SourceFiles/*.c
-      Artifact_HeaderFiles/*.h
+      Artifact_SourceFiles\\*.c
+      Artifact_HeaderFiles\\*.h
     downloadPath: '$(System.ArtifactsDirectory)/TestCases/8_CFiles/'
 
 - task: PowerShell@2
@@ -156,8 +156,8 @@ steps:
     buildType: 'current'
     downloadType: 'specific'
     itemPattern: |
-      ARTIFACT_SOURCEFILES/*.c
-      ARTIFACT_HEADERFILES/*.h
+      ARTIFACT_SOURCEFILES\\*.c
+      ARTIFACT_HEADERFILES\\*.h
     downloadPath: '$(System.ArtifactsDirectory)/TestCases/9_CFiles/'
 
 - task: PowerShell@2
@@ -174,8 +174,8 @@ steps:
     buildType: 'current'
     downloadType: 'specific'
     itemPattern: |
-      Artifact_SourceFiles/*.c
-      Artifact_HeaderFiles/*.h
+      Artifact_SourceFiles\\*.c
+      Artifact_HeaderFiles\\*.h
     downloadPath: '$(System.ArtifactsDirectory)/TestCases/10_CFiles/'
 
 - task: PowerShell@2
@@ -192,8 +192,8 @@ steps:
     buildType: 'current'
     downloadType: 'specific'
     itemPattern: |
-      ARTIFACT_SOURCEFILES/*.c
-      ARTIFACT_HEADERFILES/*.h
+      ARTIFACT_SOURCEFILES\\*.c
+      ARTIFACT_HEADERFILES\\*.h
     downloadPath: '$(System.ArtifactsDirectory)/TestCases/11_CFiles/'
 
 - task: PowerShell@2
