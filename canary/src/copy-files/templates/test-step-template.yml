@@ -13,7 +13,7 @@ parameters:
     type: string
 
 steps:
-  - task: CopyFiles@2.189.0
+  - task: CopyFiles@2.186.0
     displayName: ${{ parameters.displayName }}
     inputs:
       SourceFolder: 'canary/src/copy-files/source'
