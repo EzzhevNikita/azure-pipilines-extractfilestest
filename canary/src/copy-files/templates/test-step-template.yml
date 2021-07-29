@@ -23,6 +23,9 @@ steps:
       CleanTargetFolder: ${{ parameters.cleanTargetFolder }}
       OverWrite: ${{ parameters.overWrite }}
       flattenFolders: ${{ parameters.flattenFolders }}
+      retryCount: 6
+      delayBetweenRetries: 6000
+      
   - task: Bash@3
     displayName: 'Check if target folder contains correct files'
     inputs:
