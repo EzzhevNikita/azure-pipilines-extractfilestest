@@ -6,11 +6,11 @@ parameters:
   customVersion: ''
 
 steps:
-- task: NuGetCommand@2
-  displayName: NuGet restore
-  inputs:
-    command: restore
-    restoreSolution: ${{ parameters.projectPath }}\**\*.sln
+# - task: NuGetCommand@2
+#   displayName: NuGet restore
+#   inputs:
+#     command: restore
+#     restoreSolution: ${{ parameters.projectPath }}\**\*.sln
 
 - task: VSBuild@1
   displayName: Build ${{ parameters.configuration }}|${{ parameters.platform }}
