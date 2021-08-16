@@ -27,7 +27,7 @@ jobs:
       platform: any cpu
 
 - job: Build_NetCore_App_debug_anyCpu_Custom_Version
-  displayName: Build .Net Core App Debug_anyCpu
+  displayName: Build .Net Core App Debug_anyCpu Custom_Version
   steps:
   - template: build-steps.yml
     parameters:
