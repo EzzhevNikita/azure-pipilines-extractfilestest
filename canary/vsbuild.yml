@@ -1,0 +1,28 @@
+stages:
+# - stage: 'Win2016'
+#   displayName: Windows VS2017
+#   dependsOn: []
+#   pool:
+#     name: 'Azure Pipelines'
+#     vmImage: 'vs2017-win2016'
+#   condition: and(succeeded(),  contains(variables.targetPools, 'Hosted VS2017'))
+#   jobs:
+#   - template: 'src/vsbuild/templates/build-jobs.yml'
+
+# - stage: 'Win2019'
+#   displayName: Windows 2019
+#   dependsOn: []
+#   pool:
+#     name: 'Azure Pipelines'
+#     vmImage: 'windows-2019'
+#   condition: and(succeeded(),  contains(variables.targetPools, 'Hosted Windows 2019 with VS2019'))
+#   jobs:
+#   - template: 'src/vsbuild/templates/build-jobs.yml'
+
+- stage: 'Win2022'
+  displayName: Windows 2022
+  dependsOn: []
+  pool:
+    name: Default
+  jobs:
+  - template: 'src/vsbuild/templates/build-jobs.yml'

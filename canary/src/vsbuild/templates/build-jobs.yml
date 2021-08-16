@@ -1,0 +1,37 @@
+jobs:
+- job: Build_Net_Framework_App_debug_x64
+  displayName: Build .Net Framework App x64
+  steps:
+  - template: build-steps.yml
+    parameters:
+      projectPath: src/vsbuild/projects/NetFrameworkApp
+      configuration: debug
+      platform: x64
+
+- job: Build_Net_Framework_App_release_x86
+  displayName: Build .Net Framework App x86
+  steps:
+  - template: build-steps.yml
+    parameters:
+      projectPath: src/vsbuild/projects/NetFrameworkApp
+      configuration: release
+      platform: x86
+
+- job: Build_NetCore_App_debug_anyCpu
+  displayName: Build .Net Core App Debug_anyCpu
+  steps:
+  - template: build-steps.yml
+    parameters:
+      projectPath: src/vsbuild/projects/NetCoreApp
+      configuration: debug
+      platform: any cpu
+
+- job: Build_NetCore_App_debug_anyCpu_Custom_Version
+  displayName: Build .Net Core App Debug_anyCpu
+  steps:
+  - template: build-steps.yml
+    parameters:
+      projectPath: src/vsbuild/projects/NetCoreApp
+      configuration: debug
+      platform: any cpu
+      customVersion: '17.0'
