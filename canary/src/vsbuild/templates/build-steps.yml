@@ -19,4 +19,4 @@ steps:
     msbuildArgs: ${{ parameters.msbuildArgs }}
     platform: ${{ parameters.platform }}
     configuration: ${{ parameters.configuration }}
-    customVersion: ${{ parameters.configuration }}
+    customVersion: ${{ parameters.customVersion }}
