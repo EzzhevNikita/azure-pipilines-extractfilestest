@@ -13,7 +13,7 @@ steps:
 #     restoreSolution: ${{ parameters.projectPath }}\**\*.sln
 
 - task: VSBuild@1
-  displayName: Build ${{ parameters.configuration }}|${{ parameters.platform }}
+  displayName: Build ${{ parameters.configuration }}|${{ parameters.platform }}|${{ parameters.customVersion }}
   inputs:
     solution: ${{ parameters.projectPath }}\**\*.sln
     msbuildArgs: ${{ parameters.msbuildArgs }}
