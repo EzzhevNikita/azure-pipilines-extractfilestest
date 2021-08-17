@@ -11,7 +11,7 @@ steps:
 - task: VSBuild@1
   displayName: Build
   inputs:
-    solution: canary\src\vsbuild\projectsNetCoreApp\**\*.sln
+    solution: canary\src\vsbuild\projects\NetCoreApp\**\*.sln
     platform: any cpu
     configuration: debug
     customVersion: '17.0'
