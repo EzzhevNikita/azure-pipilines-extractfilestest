@@ -8,12 +8,6 @@ steps:
 #     command: restore
 #     restoreSolution: ${{ parameters.projectPath }}\**\*.sln
 
- projectPath: canary/src/vsbuild/projects/NetCoreApp
-      configuration: debug
-      platform: any cpu
-      customVersion: '17.0'
-
-
 - task: VSBuild@1
   displayName: Build
   inputs:
