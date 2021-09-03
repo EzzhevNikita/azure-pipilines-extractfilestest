@@ -1,21 +1,21 @@
 jobs:
-- job: 'ubuntu_self'
-  pool:
-    name: 'Default'
-    demands:
-    - agent.os -equals Linux
-  steps:
-  - template: src/download-build-artifacts/generate-test-artifacts.yml
-  - template: src/download-build-artifacts/test-download-build-artifacts.yml
+# - job: 'ubuntu_self'
+#   pool:
+#     name: 'Default'
+#     demands:
+#     - agent.os -equals Linux
+#   steps:
+#   - template: src/download-build-artifacts/generate-test-artifacts.yml
+#   - template: src/download-build-artifacts/test-download-build-artifacts.yml
 
-- job: 'macOS_self'
-  pool:
-    name: 'Default'
-    demands:
-    - agent.os -equals Darwin
-  steps:
-  - template: src/download-build-artifacts/generate-test-artifacts.yml
-  - template: src/download-build-artifacts/test-download-build-artifacts.yml
+# - job: 'macOS_self'
+#   pool:
+#     name: 'Default'
+#     demands:
+#     - agent.os -equals Darwin
+#   steps:
+#   - template: src/download-build-artifacts/generate-test-artifacts.yml
+#   - template: src/download-build-artifacts/test-download-build-artifacts.yml
 
 - job: 'win_self'
   pool:
