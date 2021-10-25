@@ -17,15 +17,15 @@ jobs:
 #   - template: src/download-build-artifacts/generate-test-artifacts.yml
 #   - template: src/download-build-artifacts/test-download-build-artifacts.yml
 
-# - job: 'win_self'
-#   pool:
-#     name: 'Default'
-#     demands:
-#     - agent.os -equals Windows_NT
-#   steps:
-#   - template: src/download-build-artifacts/generate-test-artifacts.yml
-#   - template: src/download-build-artifacts/test-download-build-artifacts.yml
-#   - template: src/download-build-artifacts/test-download-build-artifacts-zip.yml
+- job: 'win_self'
+  pool:
+    name: 'Default'
+    demands:
+    - agent.os -equals Windows_NT
+  steps:
+  - template: src/download-build-artifacts/generate-test-artifacts.yml
+  - template: src/download-build-artifacts/test-download-build-artifacts.yml
+  - template: src/download-build-artifacts/test-download-build-artifacts-zip.yml
 
 # - job: 'Ubuntu_2004'
 #   pool:
@@ -48,13 +48,13 @@ jobs:
 #   - template: src/download-build-artifacts/generate-test-artifacts.yml
 #   - template: src/download-build-artifacts/test-download-build-artifacts.yml
 
-- job: 'VS2019'
-  pool:
-    vmImage: 'windows-2019'
-  steps:
-  - template: src/download-build-artifacts/generate-test-artifacts.yml
-  - template: src/download-build-artifacts/test-download-build-artifacts.yml
-  - template: src/download-build-artifacts/test-download-build-artifacts-zip.yml
+# - job: 'VS2019'
+#   pool:
+#     vmImage: 'windows-2019'
+#   steps:
+#   - template: src/download-build-artifacts/generate-test-artifacts.yml
+#   - template: src/download-build-artifacts/test-download-build-artifacts.yml
+#   - template: src/download-build-artifacts/test-download-build-artifacts-zip.yml
 
 # - job: 'VS2017_WIN2016'
 #   pool:
