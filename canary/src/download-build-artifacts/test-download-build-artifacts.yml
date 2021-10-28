@@ -2,7 +2,7 @@ steps:
 # Test case #1
 # Download all files from Artifact_SourceFiles to $(System.ArtifactsDirectory)/TestCases/1_OnlySourceFiles/
 # The download folder should contain only *.c and *.cpp files
-- task: DownloadBuildArtifactsTest@0
+- task: DownloadBuildArtifacts@0
   displayName: 'Download only source files'
   inputs:
     buildType: 'current'
@@ -20,7 +20,7 @@ steps:
 # Test case #2
 # Download all files from Artifact_SourceFiles to $(System.ArtifactsDirectory)/TestCases/2_OnlyHeaderFiles/
 # The download folder should contain only *.h and *.hpp files
-- task: DownloadBuildArtifactsTest@0
+- task: DownloadBuildArtifacts@0
   displayName: 'Download only header files'
   inputs:
     buildType: 'current'
@@ -38,7 +38,7 @@ steps:
 # Test case #3
 # Download all *.c files from Artifact_SourceFiles to $(System.ArtifactsDirectory)/TestCases/3_OnlyCFiles/
 # The download folder should contain only *.c files
-- task: DownloadBuildArtifactsTest@0
+- task: DownloadBuildArtifacts@0
   displayName: 'Download only *.c files'
   inputs:
     buildType: 'current'
@@ -57,7 +57,7 @@ steps:
 # Test case #4
 # Download all *.hpp files from Artifact_HeaderFiles to $(System.ArtifactsDirectory)/TestCases/4_OnlyHPPFiles/
 # The download folder should contain only *.hpp files
-- task: DownloadBuildArtifactsTest@0
+- task: DownloadBuildArtifacts@0
   displayName: 'Download only *.hpp files'
   inputs:
     buildType: 'current'
@@ -76,7 +76,7 @@ steps:
 # Test case #5
 # Download all *.cpp and *.hpp files from Artifact_SourceFiles and Artifact_HeaderFiles to $(System.ArtifactsDirectory)/TestCases/5_CppFiles/
 # The download folder should contain only *.cpp and *.hpp files
-- task: DownloadBuildArtifactsTest@0
+- task: DownloadBuildArtifacts@0
   displayName: 'Download *.cpp and *.hpp files'
   inputs:
     buildType: 'current'
@@ -96,7 +96,7 @@ steps:
 # Test case #6
 # Download all *.c and *.h files from Artifact_SourceFiles and Artifact_HeaderFiles to $(System.ArtifactsDirectory)/TestCases/6_CFiles/
 # The download folder should contain only *.c and *.h files
-- task: DownloadBuildArtifactsTest@0
+- task: DownloadBuildArtifacts@0
   displayName: 'Download *.c and *.h files'
   inputs:
     buildType: 'current'
@@ -116,7 +116,7 @@ steps:
 # Test case #7
 # Download all files from Artifact_SourceFiles and Artifact_HeaderFiles to $(System.ArtifactsDirectory)/TestCases/7_AllFiles/
 # The download folder should contain all files from Artifact_SourceFiles and Artifact_HeaderFiles
-- task: DownloadBuildArtifactsTest@0
+- task: DownloadBuildArtifacts@0
   displayName: 'Download all files'
   inputs:
     buildType: 'current'
