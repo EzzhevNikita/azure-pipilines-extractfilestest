@@ -44,7 +44,7 @@ jobs:
 
 - job: 'MacOS_BigSur'
   pool:
-    vmImage: 'macos-11.0'
+    vmImage: 'macos-11'
   steps:
     - template: src/msbuild/msbuild-steps.yml
       parameters:
