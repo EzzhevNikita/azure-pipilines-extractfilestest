@@ -1,0 +1,51 @@
+jobs:
+- job: 'Win2016'
+  displayName: Windows VS2017
+  pool:
+    vmImage: 'vs2017-win2016'
+  steps:
+    - template: src/msbuild/msbuild-steps.yml
+      parameters:
+        solutionPath: '$(build.sourcesdirectory)/canary/src/msbuild/projects/SimpleConsoleAppCore2/TestConsoleApp.sln'
+
+- job: 'Win2019'
+  displayName: Windows VS2019
+  pool:
+    vmImage: 'windows-2019'
+  steps:
+    - template: src/msbuild/msbuild-steps.yml
+      parameters:
+        solutionPath: '$(build.sourcesdirectory)/canary/src/msbuild/projects/SimpleConsoleAppCore3/SimpleConsoleAppCore3.sln'
+
+- job: 'Win2022'
+  displayName: Windows VS2022
+  pool:
+    vmImage: 'windows-2022'
+  steps:
+    - template: src/msbuild/msbuild-steps.yml
+      parameters:
+        solutionPath: '$(build.sourcesdirectory)/canary/src/msbuild/projects/SimpleConsoleAppCore3/SimpleConsoleAppCore3.sln'
+
+- job: 'MacOS_Mojave'
+  pool:
+    vmImage: 'macos-10.14'
+  steps:
+    - template: src/msbuild/msbuild-steps.yml
+      parameters:
+        solutionPath: '$(build.sourcesdirectory)/canary/src/msbuild/projects/SimpleConsoleAppCore2/TestConsoleApp.sln'
+
+- job: 'MacOS_Catalana'
+  pool:
+    vmImage: 'macos-10.15'
+  steps:
+    - template: src/msbuild/msbuild-steps.yml
+      parameters:
+        solutionPath: '$(build.sourcesdirectory)/canary/src/msbuild/projects/SimpleConsoleAppCore3/SimpleConsoleAppCore3.sln'
+
+- job: 'MacOS_BigSur'
+  pool:
+    vmImage: 'macos-11.0'
+  steps:
+    - template: src/msbuild/msbuild-steps.yml
+      parameters:
+        solutionPath: '$(build.sourcesdirectory)/canary/src/msbuild/projects/SimpleConsoleAppCore3/SimpleConsoleAppCore3.sln'

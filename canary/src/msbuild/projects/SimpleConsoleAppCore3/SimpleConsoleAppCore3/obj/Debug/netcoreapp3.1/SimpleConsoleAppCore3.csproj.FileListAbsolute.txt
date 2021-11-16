@@ -1,0 +1,12 @@
+D:\Sources\azure-pipelines-canary\src\msbuild\projects\SimpleConsoleAppCore3\SimpleConsoleAppCore3\bin\Debug\netcoreapp3.1\SimpleConsoleAppCore3.exe
+D:\Sources\azure-pipelines-canary\src\msbuild\projects\SimpleConsoleAppCore3\SimpleConsoleAppCore3\bin\Debug\netcoreapp3.1\SimpleConsoleAppCore3.deps.json
+D:\Sources\azure-pipelines-canary\src\msbuild\projects\SimpleConsoleAppCore3\SimpleConsoleAppCore3\bin\Debug\netcoreapp3.1\SimpleConsoleAppCore3.runtimeconfig.json
+D:\Sources\azure-pipelines-canary\src\msbuild\projects\SimpleConsoleAppCore3\SimpleConsoleAppCore3\bin\Debug\netcoreapp3.1\SimpleConsoleAppCore3.runtimeconfig.dev.json
+D:\Sources\azure-pipelines-canary\src\msbuild\projects\SimpleConsoleAppCore3\SimpleConsoleAppCore3\bin\Debug\netcoreapp3.1\SimpleConsoleAppCore3.dll
+D:\Sources\azure-pipelines-canary\src\msbuild\projects\SimpleConsoleAppCore3\SimpleConsoleAppCore3\bin\Debug\netcoreapp3.1\SimpleConsoleAppCore3.pdb
+D:\Sources\azure-pipelines-canary\src\msbuild\projects\SimpleConsoleAppCore3\SimpleConsoleAppCore3\obj\Debug\netcoreapp3.1\SimpleConsoleAppCore3.csprojAssemblyReference.cache
+D:\Sources\azure-pipelines-canary\src\msbuild\projects\SimpleConsoleAppCore3\SimpleConsoleAppCore3\obj\Debug\netcoreapp3.1\SimpleConsoleAppCore3.AssemblyInfoInputs.cache
+D:\Sources\azure-pipelines-canary\src\msbuild\projects\SimpleConsoleAppCore3\SimpleConsoleAppCore3\obj\Debug\netcoreapp3.1\SimpleConsoleAppCore3.AssemblyInfo.cs
+D:\Sources\azure-pipelines-canary\src\msbuild\projects\SimpleConsoleAppCore3\SimpleConsoleAppCore3\obj\Debug\netcoreapp3.1\SimpleConsoleAppCore3.dll
+D:\Sources\azure-pipelines-canary\src\msbuild\projects\SimpleConsoleAppCore3\SimpleConsoleAppCore3\obj\Debug\netcoreapp3.1\SimpleConsoleAppCore3.pdb
+D:\Sources\azure-pipelines-canary\src\msbuild\projects\SimpleConsoleAppCore3\SimpleConsoleAppCore3\obj\Debug\netcoreapp3.1\SimpleConsoleAppCore3.genruntimeconfig.cache
