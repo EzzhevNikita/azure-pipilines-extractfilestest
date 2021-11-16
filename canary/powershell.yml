@@ -81,3 +81,15 @@ jobs:
   - template: src/powershell/templates/test-scope-execution.yml
     parameters:
       runScriptInSeparateScope: True
+
+- job: 'HostedWindows2019WithVS2019Hosted'
+  pool:  
+    name: 'default'
+  steps:
+  - template: src/powershell/templates/basic-execution.yml
+  - template: src/powershell/templates/test-scope-execution.yml
+    parameters:
+      runScriptInSeparateScope: False
+  - template: src/powershell/templates/test-scope-execution.yml
+    parameters:
+      runScriptInSeparateScope: True
