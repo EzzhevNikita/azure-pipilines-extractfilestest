@@ -2,7 +2,8 @@ stages:
 - stage: 'Win2022'
   displayName: Windows 2022
   pool:
-    name: Default
+    name: 'Azure Pipelines'
+    vmImage: 'windows-2022'
   jobs:
   - template: 'src/vsbuild/templates/build-jobs.yml'
 
