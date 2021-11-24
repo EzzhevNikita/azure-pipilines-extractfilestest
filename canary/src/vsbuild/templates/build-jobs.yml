@@ -4,7 +4,7 @@ jobs:
   steps:
   - template: build-steps.yml
     parameters:
-      projectPath: canary/src/vsbuild/projects/NetFrameworkApp
+      projectPath: src/vsbuild/projects/NetFrameworkApp
       configuration: debug
       platform: x64
 
@@ -13,7 +13,7 @@ jobs:
   steps:
   - template: build-steps.yml
     parameters:
-      projectPath: canary/src/vsbuild/projects/NetFrameworkApp
+      projectPath: src/vsbuild/projects/NetFrameworkApp
       configuration: release
       platform: x86
 
@@ -22,16 +22,6 @@ jobs:
   steps:
   - template: build-steps.yml
     parameters:
-      projectPath: canary/src/vsbuild/projects/NetCoreApp
+      projectPath: src/vsbuild/projects/NetCoreApp
       configuration: debug
       platform: any cpu
-
-- job: Build_NetCore_App_debug_anyCpu_Custom_Version
-  displayName: Build .Net Core App Debug_anyCpu Custom_Version
-  steps:
-  - template: build-steps.yml
-    parameters:
-      projectPath: canary/src/vsbuild/projects/NetCoreApp
-      configuration: debug
-      platform: any cpu
-      customVersion: '17.0'

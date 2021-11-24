@@ -1,3 +1,9 @@
+parameters:
+  projectPath: ''
+  msbuildArgs: ''
+  platform: ''
+  configuration: ''
+
 steps:
 - task: NuGetCommand@2
   displayName: NuGet restore
@@ -5,10 +11,10 @@ steps:
     command: restore
     restoreSolution: ${{ parameters.projectPath }}\**\*.sln
 
-- task: MSBuild@1
-  displayName: Build
+- task: VSBuild@1
+  displayName: Build ${{ parameters.configuration }}|${{ parameters.platform }}
   inputs:
-    solution: 'canary\src\vsbuild\projects\NetCoreApp\**\*.sln'
-    msbuildVersion: '15.0'
-    platform: 'any cpu'
-    configuration: 'debug'
+    solution: ${{ parameters.projectPath }}\**\*.sln
+    msbuildArgs: ${{ parameters.msbuildArgs }}
+    platform: ${{ parameters.platform }}
+    configuration: ${{ parameters.configuration }}
