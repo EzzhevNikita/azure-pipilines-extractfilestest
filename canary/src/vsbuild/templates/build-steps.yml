@@ -1,6 +1,3 @@
-pool:
-  name: 'Default'
-
 steps:
 - task: NuGetCommand@2
   displayName: NuGet restore
